@@ -1,19 +1,29 @@
 
 # uk-house-prices
 
+Releases and vintages
+
 ## CSV Data
 
-See the [data directory](./data) for more details about the data returned by the API. You can also download the data in CSV format.
-
-
-
+See the [data directory](./data) if you want to download the data in CSV format. 
 
 # API 
+
+You can also 
 
 
 ## Lookup 
 
 `endpoint`: https://lancs-macro.github.io/uk-house-prices/
 
+##  Parameters
 
-https://lancs-macro.github.io/uk-house-prices/{version}/{frequency}/{classification}/
+GET /{vintage}/{frequency}/{classification}/
+
+* `vintage`: 
+
+* `frequency`:
+
+* `classification`:
+
+# R package
