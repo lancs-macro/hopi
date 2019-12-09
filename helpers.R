@@ -6,9 +6,9 @@ json_to_csv <- function(x, filepath = "latest/mtcars.csv") {
   write.csv(df, file = paste0("data/", filepath))
 }
 
-ukhp_get <- function(x, frequency = "monthly", classification = "nuts1", vintage = "latest") {
+ukhp_get <- function(x, frequency = "monthly", classification = "nuts1", release = "latest") {
   endpoint <- "https://lancs-macro.github.io/uk-house-prices"
-  query <- paste(endpoint, vintage, frequency, paste0(classification, ".json"), sep = "/")
+  query <- paste(endpoint, release, frequency, paste0(classification, ".json"), sep = "/")
   request <- GET(query)
   stop_for_status(request)
   parse_json(content(request), simplifyVector = TRUE)
