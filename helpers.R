@@ -16,6 +16,6 @@ ukhp_get <- function(x, frequency = "monthly", classification = "nuts1", release
   query <- paste(endpoint, release, frequency, paste0(classification, ".json"), sep = "/")
   request <- GET(query)
   stop_for_status(request)
-  parse_json(content(request), simplifyVector = TRUE)
+  parse_json(request, simplifyVector = TRUE)
 } 
 
