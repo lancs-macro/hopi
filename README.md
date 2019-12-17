@@ -32,7 +32,7 @@ GET releases/{release}/{frequency}/{classification}/
 
 * `classification`: one of "aggregate", "nuts1", "nuts2" or "nuts3"
 
-GET archives/{archive}
+GET archives/{latest}
 
 * `archive`: "latest" for the latest archive
 
