@@ -1,0 +1,18 @@
+{
+  "releases": {
+    "latest": {
+      "monthly": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ],
+      "quarterly": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ],
+      "annual": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ]
+    }
+  },
+  "archives": [
+    ["latest.zip"]
+  ]
+}
