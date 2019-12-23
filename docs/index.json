@@ -1,1 +1,18 @@
-{"releases":{"latest":{"monthly":[["nuts1.json","nuts2.json","nuts3.json","aggregate.json"]],"quarterly":[["nuts1.json","nuts2.json","nuts3.json","aggregate.json"]],"annual":[["nuts1.json","nuts2.json","nuts3.json","aggregate.json"]]}},"archives":[["latest.zip"]]}
+{
+  "releases": {
+    "latest": {
+      "monthly": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ],
+      "quarterly": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ],
+      "annual": [
+        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
+      ]
+    }
+  },
+  "archives": [
+    ["latest.zip"]
+  ]
+}

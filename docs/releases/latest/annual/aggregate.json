@@ -1,1 +1,98 @@
-[{"index":"1996-01-01","England and Wales":1.0239},{"index":"1997-01-01","England and Wales":1.1024},{"index":"1998-01-01","England and Wales":1.1953},{"index":"1999-01-01","England and Wales":1.2988},{"index":"2000-01-01","England and Wales":1.4658},{"index":"2001-01-01","England and Wales":1.6242},{"index":"2002-01-01","England and Wales":1.8858},{"index":"2003-01-01","England and Wales":2.2005},{"index":"2004-01-01","England and Wales":2.4776},{"index":"2005-01-01","England and Wales":2.6388},{"index":"2006-01-01","England and Wales":2.804},{"index":"2007-01-01","England and Wales":3.0308},{"index":"2008-01-01","England and Wales":3.0024},{"index":"2009-01-01","England and Wales":2.7747},{"index":"2010-01-01","England and Wales":2.9099},{"index":"2011-01-01","England and Wales":2.889},{"index":"2012-01-01","England and Wales":2.9201},{"index":"2013-01-01","England and Wales":3.0062},{"index":"2014-01-01","England and Wales":3.211},{"index":"2015-01-01","England and Wales":3.3995},{"index":"2016-01-01","England and Wales":3.6106},{"index":"2017-01-01","England and Wales":3.7749},{"index":"2018-01-01","England and Wales":3.8969},{"index":"2019-01-01","England and Wales":3.945}]
+[
+  {
+    "Date": "1996-01-01",
+    "England and Wales": 1.0238
+  },
+  {
+    "Date": "1997-01-01",
+    "England and Wales": 1.1024
+  },
+  {
+    "Date": "1998-01-01",
+    "England and Wales": 1.1953
+  },
+  {
+    "Date": "1999-01-01",
+    "England and Wales": 1.2988
+  },
+  {
+    "Date": "2000-01-01",
+    "England and Wales": 1.4659
+  },
+  {
+    "Date": "2001-01-01",
+    "England and Wales": 1.6242
+  },
+  {
+    "Date": "2002-01-01",
+    "England and Wales": 1.8858
+  },
+  {
+    "Date": "2003-01-01",
+    "England and Wales": 2.2008
+  },
+  {
+    "Date": "2004-01-01",
+    "England and Wales": 2.4781
+  },
+  {
+    "Date": "2005-01-01",
+    "England and Wales": 2.6393
+  },
+  {
+    "Date": "2006-01-01",
+    "England and Wales": 2.8046
+  },
+  {
+    "Date": "2007-01-01",
+    "England and Wales": 3.0314
+  },
+  {
+    "Date": "2008-01-01",
+    "England and Wales": 3.0029
+  },
+  {
+    "Date": "2009-01-01",
+    "England and Wales": 2.7748
+  },
+  {
+    "Date": "2010-01-01",
+    "England and Wales": 2.91
+  },
+  {
+    "Date": "2011-01-01",
+    "England and Wales": 2.8891
+  },
+  {
+    "Date": "2012-01-01",
+    "England and Wales": 2.9199
+  },
+  {
+    "Date": "2013-01-01",
+    "England and Wales": 3.0061
+  },
+  {
+    "Date": "2014-01-01",
+    "England and Wales": 3.211
+  },
+  {
+    "Date": "2015-01-01",
+    "England and Wales": 3.3994
+  },
+  {
+    "Date": "2016-01-01",
+    "England and Wales": 3.6103
+  },
+  {
+    "Date": "2017-01-01",
+    "England and Wales": 3.7745
+  },
+  {
+    "Date": "2018-01-01",
+    "England and Wales": 3.8969
+  },
+  {
+    "Date": "2019-01-01",
+    "England and Wales": 3.9502
+  }
+]
