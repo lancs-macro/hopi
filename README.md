@@ -8,7 +8,7 @@ The uk-house-prices is updated on a quarterly basis.
 
 ## CSV Data
 
-if you want to download the data in CSV format you can see the latest release in the [data directory](https://github.com/lancs-macro/uk-house-prices/tree/master/data/latest). 
+if you want to download the data in CSV format you can see the latest release in the [data directory](https://github.com/lancs-macro/uk-house-prices/tree/master/data/). 
 
 # API 
 
