@@ -1,10 +1,7 @@
 
-# uk-house-prices
+# hopi: Housing Observatory Price Index
 
 ## Releases
-
-The uk-house-prices is updated on a quarterly basis.
-
 
 ## CSV Data
 
@@ -16,25 +13,17 @@ You can also take advantage of the static (read-only) API on github.
 
 ## Endpoint 
 
-`endpoint`: https://lancs-macro.github.io/uk-house-prices/
+`endpoint`: https://lancs-macro.github.io/hopi/
 
-##  Parameters
+GET /{release}/{frequency}/{classification}
 
-GET overview/{overview}
+* `release`: format %YYYYQ%q (e.g. 2019Q4).
+* `frequency`: one of "annual", "quarterly" or "monthly" (TBA "weekly", "daily").
+* `classification`: one of "nuts1", "nuts2", "nuts3", "aggregate", "all".
 
-* `ove
+GET overview
 
-GET releases/{release}/{frequency}/{classification}/
-
-* `release`: "latest" for the latest release, otherwise the data (YYYY-MM) of the release (e.g. 2019-09) 
-
-* `frequency`: one of "annual", "quarterly" or "monthly"
-
-* `classification`: one of "aggregate", "nuts1", "nuts2" or "nuts3"
-
-GET archives/{latest}
-
-* `archive`: "latest" for the latest archive
+* `overview`: overview of all the contents
 
 # R 
 

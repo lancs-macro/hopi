@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^docs$
+^api$
+^run\.R$
+^LICENSE\.md$
