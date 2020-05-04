@@ -15,7 +15,7 @@ You can also take advantage of the static (read-only) API on github.
 
 `endpoint`: https://lancs-macro.github.io/hopi/
 
-GET /{release}/{frequency}/{classification}
+GET releases/{release}/{frequency}/{classification}/
 
 * `release`: format %YYYYQ%q (e.g. 2019Q4).
 * `frequency`: one of "annual", "quarterly" or "monthly" (TBA "weekly", "daily").
