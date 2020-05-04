@@ -26,7 +26,8 @@ Imports:
     whisker,
     zoo,
     digest,
-    yaml
+    yaml,
+    readr
 Suggests: 
     itsmr
 Encoding: UTF-8

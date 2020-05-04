@@ -2,23 +2,14 @@
 # Download and clean the raw file -----------------------------------------
 
 # These functions are only needed for update 
+
 download_lr_file()
-clean_lr_file()
-# source("regional-info/regional-classification.R) # rerun
 
-
-# Install all necessary packages ------------------------------------------
-
-# setup_install() 
-
-# Load everything ---------------------------------------------------------
-
-source("R/functions.R")
-setup_load()
+tidy_lr_file()
 
 # Cleaning data -----------------------------------------------------------
 
-dt <- clean_data()
+dt <- tidy_data()
 
 # Creating indices --------------------------------------------------------
 
@@ -43,4 +34,4 @@ nuts3_annual <- rsindex(dt, gclass = "nuts3", freq = "annual") # works
 
 
 
-
+cleanup()
