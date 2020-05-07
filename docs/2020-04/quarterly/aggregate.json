@@ -1,0 +1,702 @@
+[
+  {
+    "Date": "1995 Q2",
+    "United Kingdom": 1.0055,
+    "England": 1.0059,
+    "Wales": 1.0005,
+    "London Effect": 1.0028
+  },
+  {
+    "Date": "1995 Q3",
+    "United Kingdom": 1.0008,
+    "England": 1.0008,
+    "Wales": 0.9969,
+    "London Effect": 0.9963
+  },
+  {
+    "Date": "1995 Q4",
+    "United Kingdom": 1.0102,
+    "England": 1.0105,
+    "Wales": 0.9957,
+    "London Effect": 1.0037
+  },
+  {
+    "Date": "1996 Q1",
+    "United Kingdom": 1.0091,
+    "England": 1.0095,
+    "Wales": 0.9943,
+    "London Effect": 1.0018
+  },
+  {
+    "Date": "1996 Q2",
+    "United Kingdom": 1.0197,
+    "England": 1.0201,
+    "Wales": 1.0053,
+    "London Effect": 1.0103
+  },
+  {
+    "Date": "1996 Q3",
+    "United Kingdom": 1.0278,
+    "England": 1.028,
+    "Wales": 1.0155,
+    "London Effect": 1.0172
+  },
+  {
+    "Date": "1996 Q4",
+    "United Kingdom": 1.048,
+    "England": 1.0486,
+    "Wales": 1.0231,
+    "London Effect": 1.0362
+  },
+  {
+    "Date": "1997 Q1",
+    "United Kingdom": 1.0645,
+    "England": 1.0654,
+    "Wales": 1.0325,
+    "London Effect": 1.0518
+  },
+  {
+    "Date": "1997 Q2",
+    "United Kingdom": 1.0903,
+    "England": 1.0916,
+    "Wales": 1.052,
+    "London Effect": 1.0749
+  },
+  {
+    "Date": "1997 Q3",
+    "United Kingdom": 1.1142,
+    "England": 1.1161,
+    "Wales": 1.0636,
+    "London Effect": 1.0967
+  },
+  {
+    "Date": "1997 Q4",
+    "United Kingdom": 1.1422,
+    "England": 1.1445,
+    "Wales": 1.0809,
+    "London Effect": 1.1233
+  },
+  {
+    "Date": "1998 Q1",
+    "United Kingdom": 1.1615,
+    "England": 1.1642,
+    "Wales": 1.09,
+    "London Effect": 1.1413
+  },
+  {
+    "Date": "1998 Q2",
+    "United Kingdom": 1.1877,
+    "England": 1.1909,
+    "Wales": 1.1085,
+    "London Effect": 1.165
+  },
+  {
+    "Date": "1998 Q3",
+    "United Kingdom": 1.2094,
+    "England": 1.213,
+    "Wales": 1.1188,
+    "London Effect": 1.1852
+  },
+  {
+    "Date": "1998 Q4",
+    "United Kingdom": 1.2306,
+    "England": 1.2342,
+    "Wales": 1.1382,
+    "London Effect": 1.2061
+  },
+  {
+    "Date": "1999 Q1",
+    "United Kingdom": 1.2434,
+    "England": 1.2474,
+    "Wales": 1.141,
+    "London Effect": 1.2176
+  },
+  {
+    "Date": "1999 Q2",
+    "United Kingdom": 1.2756,
+    "England": 1.2801,
+    "Wales": 1.1628,
+    "London Effect": 1.2472
+  },
+  {
+    "Date": "1999 Q3",
+    "United Kingdom": 1.3142,
+    "England": 1.3194,
+    "Wales": 1.1842,
+    "London Effect": 1.2821
+  },
+  {
+    "Date": "1999 Q4",
+    "United Kingdom": 1.3627,
+    "England": 1.369,
+    "Wales": 1.2145,
+    "London Effect": 1.3266
+  },
+  {
+    "Date": "2000 Q1",
+    "United Kingdom": 1.4051,
+    "England": 1.4124,
+    "Wales": 1.2354,
+    "London Effect": 1.3644
+  },
+  {
+    "Date": "2000 Q2",
+    "United Kingdom": 1.4576,
+    "England": 1.4661,
+    "Wales": 1.2685,
+    "London Effect": 1.4137
+  },
+  {
+    "Date": "2000 Q3",
+    "United Kingdom": 1.4954,
+    "England": 1.505,
+    "Wales": 1.2905,
+    "London Effect": 1.4508
+  },
+  {
+    "Date": "2000 Q4",
+    "United Kingdom": 1.521,
+    "England": 1.5306,
+    "Wales": 1.3111,
+    "London Effect": 1.4764
+  },
+  {
+    "Date": "2001 Q1",
+    "United Kingdom": 1.5491,
+    "England": 1.5592,
+    "Wales": 1.3214,
+    "London Effect": 1.5012
+  },
+  {
+    "Date": "2001 Q2",
+    "United Kingdom": 1.6039,
+    "England": 1.6144,
+    "Wales": 1.362,
+    "London Effect": 1.5547
+  },
+  {
+    "Date": "2001 Q3",
+    "United Kingdom": 1.6576,
+    "England": 1.6689,
+    "Wales": 1.405,
+    "London Effect": 1.6055
+  },
+  {
+    "Date": "2001 Q4",
+    "United Kingdom": 1.7034,
+    "England": 1.7158,
+    "Wales": 1.4322,
+    "London Effect": 1.6504
+  },
+  {
+    "Date": "2002 Q1",
+    "United Kingdom": 1.7463,
+    "England": 1.759,
+    "Wales": 1.4699,
+    "London Effect": 1.6925
+  },
+  {
+    "Date": "2002 Q2",
+    "United Kingdom": 1.8393,
+    "England": 1.8526,
+    "Wales": 1.5438,
+    "London Effect": 1.7849
+  },
+  {
+    "Date": "2002 Q3",
+    "United Kingdom": 1.9473,
+    "England": 1.9609,
+    "Wales": 1.6424,
+    "London Effect": 1.8927
+  },
+  {
+    "Date": "2002 Q4",
+    "United Kingdom": 2.0423,
+    "England": 2.0569,
+    "Wales": 1.7245,
+    "London Effect": 1.9898
+  },
+  {
+    "Date": "2003 Q1",
+    "United Kingdom": 2.1082,
+    "England": 2.1227,
+    "Wales": 1.7937,
+    "London Effect": 2.0566
+  },
+  {
+    "Date": "2003 Q2",
+    "United Kingdom": 2.1805,
+    "England": 2.1943,
+    "Wales": 1.893,
+    "London Effect": 2.1344
+  },
+  {
+    "Date": "2003 Q3",
+    "United Kingdom": 2.2382,
+    "England": 2.25,
+    "Wales": 1.9834,
+    "London Effect": 2.199
+  },
+  {
+    "Date": "2003 Q4",
+    "United Kingdom": 2.3065,
+    "England": 2.3171,
+    "Wales": 2.0846,
+    "London Effect": 2.2708
+  },
+  {
+    "Date": "2004 Q1",
+    "United Kingdom": 2.3633,
+    "England": 2.3725,
+    "Wales": 2.1802,
+    "London Effect": 2.3324
+  },
+  {
+    "Date": "2004 Q2",
+    "United Kingdom": 2.471,
+    "England": 2.4789,
+    "Wales": 2.3301,
+    "London Effect": 2.4439
+  },
+  {
+    "Date": "2004 Q3",
+    "United Kingdom": 2.5562,
+    "England": 2.5628,
+    "Wales": 2.4604,
+    "London Effect": 2.5345
+  },
+  {
+    "Date": "2004 Q4",
+    "United Kingdom": 2.6049,
+    "England": 2.6112,
+    "Wales": 2.5219,
+    "London Effect": 2.584
+  },
+  {
+    "Date": "2005 Q1",
+    "United Kingdom": 2.602,
+    "England": 2.6077,
+    "Wales": 2.5305,
+    "London Effect": 2.5828
+  },
+  {
+    "Date": "2005 Q2",
+    "United Kingdom": 2.649,
+    "England": 2.6549,
+    "Wales": 2.5721,
+    "London Effect": 2.63
+  },
+  {
+    "Date": "2005 Q3",
+    "United Kingdom": 2.6702,
+    "England": 2.6753,
+    "Wales": 2.6191,
+    "London Effect": 2.6525
+  },
+  {
+    "Date": "2005 Q4",
+    "United Kingdom": 2.7027,
+    "England": 2.7082,
+    "Wales": 2.6299,
+    "London Effect": 2.6812
+  },
+  {
+    "Date": "2006 Q1",
+    "United Kingdom": 2.7273,
+    "England": 2.7327,
+    "Wales": 2.6565,
+    "London Effect": 2.7077
+  },
+  {
+    "Date": "2006 Q2",
+    "United Kingdom": 2.7967,
+    "England": 2.8023,
+    "Wales": 2.718,
+    "London Effect": 2.7727
+  },
+  {
+    "Date": "2006 Q3",
+    "United Kingdom": 2.8442,
+    "England": 2.8494,
+    "Wales": 2.77,
+    "London Effect": 2.8179
+  },
+  {
+    "Date": "2006 Q4",
+    "United Kingdom": 2.9145,
+    "England": 2.92,
+    "Wales": 2.8244,
+    "London Effect": 2.8831
+  },
+  {
+    "Date": "2007 Q1",
+    "United Kingdom": 2.9573,
+    "England": 2.964,
+    "Wales": 2.8485,
+    "London Effect": 2.9236
+  },
+  {
+    "Date": "2007 Q2",
+    "United Kingdom": 3.0401,
+    "England": 3.0477,
+    "Wales": 2.9041,
+    "London Effect": 2.9966
+  },
+  {
+    "Date": "2007 Q3",
+    "United Kingdom": 3.093,
+    "England": 3.101,
+    "Wales": 2.9525,
+    "London Effect": 3.0432
+  },
+  {
+    "Date": "2007 Q4",
+    "United Kingdom": 3.1244,
+    "England": 3.132,
+    "Wales": 2.9836,
+    "London Effect": 3.0693
+  },
+  {
+    "Date": "2008 Q1",
+    "United Kingdom": 3.0937,
+    "England": 3.1019,
+    "Wales": 2.9384,
+    "London Effect": 3.0384
+  },
+  {
+    "Date": "2008 Q2",
+    "United Kingdom": 3.0865,
+    "England": 3.0948,
+    "Wales": 2.9175,
+    "London Effect": 3.0269
+  },
+  {
+    "Date": "2008 Q3",
+    "United Kingdom": 2.985,
+    "England": 2.9919,
+    "Wales": 2.8469,
+    "London Effect": 2.9251
+  },
+  {
+    "Date": "2008 Q4",
+    "United Kingdom": 2.8391,
+    "England": 2.8422,
+    "Wales": 2.7634,
+    "London Effect": 2.7793
+  },
+  {
+    "Date": "2009 Q1",
+    "United Kingdom": 2.7277,
+    "England": 2.7317,
+    "Wales": 2.6397,
+    "London Effect": 2.6697
+  },
+  {
+    "Date": "2009 Q2",
+    "United Kingdom": 2.7317,
+    "England": 2.7354,
+    "Wales": 2.6553,
+    "London Effect": 2.6719
+  },
+  {
+    "Date": "2009 Q3",
+    "United Kingdom": 2.7899,
+    "England": 2.7945,
+    "Wales": 2.7064,
+    "London Effect": 2.7289
+  },
+  {
+    "Date": "2009 Q4",
+    "United Kingdom": 2.8555,
+    "England": 2.8619,
+    "Wales": 2.7335,
+    "London Effect": 2.7887
+  },
+  {
+    "Date": "2010 Q1",
+    "United Kingdom": 2.8889,
+    "England": 2.8968,
+    "Wales": 2.7353,
+    "London Effect": 2.8191
+  },
+  {
+    "Date": "2010 Q2",
+    "United Kingdom": 2.9301,
+    "England": 2.9373,
+    "Wales": 2.7792,
+    "London Effect": 2.8576
+  },
+  {
+    "Date": "2010 Q3",
+    "United Kingdom": 2.9528,
+    "England": 2.9612,
+    "Wales": 2.7904,
+    "London Effect": 2.8748
+  },
+  {
+    "Date": "2010 Q4",
+    "United Kingdom": 2.9262,
+    "England": 2.9345,
+    "Wales": 2.748,
+    "London Effect": 2.8476
+  },
+  {
+    "Date": "2011 Q1",
+    "United Kingdom": 2.8898,
+    "England": 2.8977,
+    "Wales": 2.7232,
+    "London Effect": 2.8071
+  },
+  {
+    "Date": "2011 Q2",
+    "United Kingdom": 2.9023,
+    "England": 2.9109,
+    "Wales": 2.7223,
+    "London Effect": 2.8173
+  },
+  {
+    "Date": "2011 Q3",
+    "United Kingdom": 2.9169,
+    "England": 2.9261,
+    "Wales": 2.7242,
+    "London Effect": 2.8241
+  },
+  {
+    "Date": "2011 Q4",
+    "United Kingdom": 2.9067,
+    "England": 2.9164,
+    "Wales": 2.7021,
+    "London Effect": 2.8136
+  },
+  {
+    "Date": "2012 Q1",
+    "United Kingdom": 2.8949,
+    "England": 2.9052,
+    "Wales": 2.686,
+    "London Effect": 2.8001
+  },
+  {
+    "Date": "2012 Q2",
+    "United Kingdom": 2.9392,
+    "England": 2.9495,
+    "Wales": 2.7187,
+    "London Effect": 2.8365
+  },
+  {
+    "Date": "2012 Q3",
+    "United Kingdom": 2.9544,
+    "England": 2.966,
+    "Wales": 2.7151,
+    "London Effect": 2.8446
+  },
+  {
+    "Date": "2012 Q4",
+    "United Kingdom": 2.9489,
+    "England": 2.9606,
+    "Wales": 2.7034,
+    "London Effect": 2.839
+  },
+  {
+    "Date": "2013 Q1",
+    "United Kingdom": 2.9479,
+    "England": 2.9599,
+    "Wales": 2.7002,
+    "London Effect": 2.8324
+  },
+  {
+    "Date": "2013 Q2",
+    "United Kingdom": 2.9907,
+    "England": 3.0036,
+    "Wales": 2.7202,
+    "London Effect": 2.8717
+  },
+  {
+    "Date": "2013 Q3",
+    "United Kingdom": 3.0376,
+    "England": 3.0519,
+    "Wales": 2.7363,
+    "London Effect": 2.9083
+  },
+  {
+    "Date": "2013 Q4",
+    "United Kingdom": 3.077,
+    "England": 3.0918,
+    "Wales": 2.7709,
+    "London Effect": 2.9438
+  },
+  {
+    "Date": "2014 Q1",
+    "United Kingdom": 3.117,
+    "England": 3.1328,
+    "Wales": 2.7878,
+    "London Effect": 2.9747
+  },
+  {
+    "Date": "2014 Q2",
+    "United Kingdom": 3.198,
+    "England": 3.216,
+    "Wales": 2.8297,
+    "London Effect": 3.0471
+  },
+  {
+    "Date": "2014 Q3",
+    "United Kingdom": 3.2783,
+    "England": 3.2984,
+    "Wales": 2.8674,
+    "London Effect": 3.1168
+  },
+  {
+    "Date": "2014 Q4",
+    "United Kingdom": 3.3007,
+    "England": 3.3216,
+    "Wales": 2.8762,
+    "London Effect": 3.1416
+  },
+  {
+    "Date": "2015 Q1",
+    "United Kingdom": 3.3211,
+    "England": 3.3429,
+    "Wales": 2.8803,
+    "London Effect": 3.155
+  },
+  {
+    "Date": "2015 Q2",
+    "United Kingdom": 3.3738,
+    "England": 3.3969,
+    "Wales": 2.9108,
+    "London Effect": 3.2076
+  },
+  {
+    "Date": "2015 Q3",
+    "United Kingdom": 3.452,
+    "England": 3.4782,
+    "Wales": 2.9283,
+    "London Effect": 3.2766
+  },
+  {
+    "Date": "2015 Q4",
+    "United Kingdom": 3.4951,
+    "England": 3.522,
+    "Wales": 2.9676,
+    "London Effect": 3.3183
+  },
+  {
+    "Date": "2016 Q1",
+    "United Kingdom": 3.5522,
+    "England": 3.5808,
+    "Wales": 2.9825,
+    "London Effect": 3.3567
+  },
+  {
+    "Date": "2016 Q2",
+    "United Kingdom": 3.6094,
+    "England": 3.64,
+    "Wales": 3.0253,
+    "London Effect": 3.4297
+  },
+  {
+    "Date": "2016 Q3",
+    "United Kingdom": 3.6755,
+    "England": 3.7077,
+    "Wales": 3.0626,
+    "London Effect": 3.4938
+  },
+  {
+    "Date": "2016 Q4",
+    "United Kingdom": 3.6789,
+    "England": 3.7117,
+    "Wales": 3.0782,
+    "London Effect": 3.499
+  },
+  {
+    "Date": "2017 Q1",
+    "United Kingdom": 3.7101,
+    "England": 3.744,
+    "Wales": 3.075,
+    "London Effect": 3.5222
+  },
+  {
+    "Date": "2017 Q2",
+    "United Kingdom": 3.7648,
+    "England": 3.8013,
+    "Wales": 3.1109,
+    "London Effect": 3.5777
+  },
+  {
+    "Date": "2017 Q3",
+    "United Kingdom": 3.8371,
+    "England": 3.8728,
+    "Wales": 3.1797,
+    "London Effect": 3.6482
+  },
+  {
+    "Date": "2017 Q4",
+    "United Kingdom": 3.8447,
+    "England": 3.8807,
+    "Wales": 3.2042,
+    "London Effect": 3.6616
+  },
+  {
+    "Date": "2018 Q1",
+    "United Kingdom": 3.8581,
+    "England": 3.8924,
+    "Wales": 3.2277,
+    "London Effect": 3.6718
+  },
+  {
+    "Date": "2018 Q2",
+    "United Kingdom": 3.8927,
+    "England": 3.9275,
+    "Wales": 3.2613,
+    "London Effect": 3.7081
+  },
+  {
+    "Date": "2018 Q3",
+    "United Kingdom": 3.9555,
+    "England": 3.9894,
+    "Wales": 3.3372,
+    "London Effect": 3.7704
+  },
+  {
+    "Date": "2018 Q4",
+    "United Kingdom": 3.9447,
+    "England": 3.977,
+    "Wales": 3.3592,
+    "London Effect": 3.7673
+  },
+  {
+    "Date": "2019 Q1",
+    "United Kingdom": 3.9215,
+    "England": 3.9522,
+    "Wales": 3.3581,
+    "London Effect": 3.745
+  },
+  {
+    "Date": "2019 Q2",
+    "United Kingdom": 3.9486,
+    "England": 3.9783,
+    "Wales": 3.399,
+    "London Effect": 3.7741
+  },
+  {
+    "Date": "2019 Q3",
+    "United Kingdom": 4.0108,
+    "England": 4.0401,
+    "Wales": 3.4608,
+    "London Effect": 3.8297
+  },
+  {
+    "Date": "2019 Q4",
+    "United Kingdom": 4.0149,
+    "England": 4.0424,
+    "Wales": 3.4958,
+    "London Effect": 3.8364
+  },
+  {
+    "Date": "2020 Q1",
+    "United Kingdom": 4.0202,
+    "England": 4.0479,
+    "Wales": 3.5003,
+    "London Effect": 3.8386
+  }
+]

@@ -27,7 +27,10 @@ Imports:
     zoo,
     digest,
     yaml,
-    readr
+    readr,
+    progress,
+    uklr,
+    rlang
 Suggests: 
     itsmr
 Encoding: UTF-8

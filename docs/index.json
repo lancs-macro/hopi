@@ -1,18 +1,26 @@
 {
-  "releases": {
-    "latest": {
-      "monthly": [
-        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
-      ],
-      "quarterly": [
-        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
-      ],
-      "annual": [
-        ["aggregate.json", "countries.json", "nuts1.json", "nuts2.json", "nuts3.json"]
-      ]
+  "2020-04": {
+    "annual": {
+      "aggregate.json": ["docs/2020-04/annual/aggregate.json"],
+      "desc.json": ["docs/2020-04/annual/desc.json"],
+      "nuts1.json": ["docs/2020-04/annual/nuts1.json"],
+      "nuts2.json": ["docs/2020-04/annual/nuts2.json"],
+      "nuts3.json": ["docs/2020-04/annual/nuts3.json"]
+    },
+    "monthly": {
+      "aggregate.json": ["docs/2020-04/monthly/aggregate.json"],
+      "desc.json": ["docs/2020-04/monthly/desc.json"],
+      "nuts1.json": ["docs/2020-04/monthly/nuts1.json"],
+      "nuts2.json": ["docs/2020-04/monthly/nuts2.json"],
+      "nuts3.json": ["docs/2020-04/monthly/nuts3.json"]
+    },
+    "quarterly": {
+      "aggregate.json": ["docs/2020-04/quarterly/aggregate.json"],
+      "desc.json": ["docs/2020-04/quarterly/desc.json"],
+      "nuts1.json": ["docs/2020-04/quarterly/nuts1.json"],
+      "nuts2.json": ["docs/2020-04/quarterly/nuts2.json"],
+      "nuts3.json": ["docs/2020-04/quarterly/nuts3.json"]
     }
   },
-  "archives": [
-    ["latest.zip"]
-  ]
+  "classification.json": ["docs/classification.json"]
 }

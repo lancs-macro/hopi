@@ -1,16 +1,4 @@
 
-#' @importFrom jsonlite write_json
-tree_list <- function(path = ".") {
-  isdir <- file.info(path)$isdir
-  if (!isdir) {
-    out <- path
-  } else {
-    files <- list.files(path, full.names   = TRUE, include.dirs = TRUE)
-    out <- lapply(files, tree_list)
-    names(out) <- basename(files)
-  }
-  out
-}
 
 #' @importFrom whisker whisker.render
 render_template <- function(path, data) {

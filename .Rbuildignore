@@ -3,5 +3,8 @@
 ^data-raw$
 ^docs$
 ^api$
+^temp$
 ^run\.R$
 ^LICENSE\.md$
+^data-preparation\.sh$
+^data$

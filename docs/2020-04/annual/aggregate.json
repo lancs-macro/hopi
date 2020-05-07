@@ -1,0 +1,177 @@
+[
+  {
+    "Date": 1996,
+    "United Kingdom": 1.0237,
+    "England": 1.024,
+    "Wales": 1.0127,
+    "London Effect": 1.0178
+  },
+  {
+    "Date": 1997,
+    "United Kingdom": 1.1024,
+    "England": 1.1039,
+    "Wales": 1.0606,
+    "London Effect": 1.0904
+  },
+  {
+    "Date": 1998,
+    "United Kingdom": 1.1953,
+    "England": 1.1984,
+    "Wales": 1.1185,
+    "London Effect": 1.1772
+  },
+  {
+    "Date": 1999,
+    "United Kingdom": 1.2987,
+    "England": 1.3035,
+    "Wales": 1.1824,
+    "London Effect": 1.273
+  },
+  {
+    "Date": 2000,
+    "United Kingdom": 1.4659,
+    "England": 1.4743,
+    "Wales": 1.2819,
+    "London Effect": 1.4286
+  },
+  {
+    "Date": 2001,
+    "United Kingdom": 1.6243,
+    "England": 1.635,
+    "Wales": 1.3877,
+    "London Effect": 1.5806
+  },
+  {
+    "Date": 2002,
+    "United Kingdom": 1.8861,
+    "England": 1.8994,
+    "Wales": 1.5988,
+    "London Effect": 1.84
+  },
+  {
+    "Date": 2003,
+    "United Kingdom": 2.2018,
+    "England": 2.2138,
+    "Wales": 1.9461,
+    "London Effect": 2.1681
+  },
+  {
+    "Date": 2004,
+    "United Kingdom": 2.4798,
+    "England": 2.4869,
+    "Wales": 2.3583,
+    "London Effect": 2.4634
+  },
+  {
+    "Date": 2005,
+    "United Kingdom": 2.6413,
+    "England": 2.6464,
+    "Wales": 2.583,
+    "London Effect": 2.6316
+  },
+  {
+    "Date": 2006,
+    "United Kingdom": 2.8065,
+    "England": 2.8115,
+    "Wales": 2.7407,
+    "London Effect": 2.7913
+  },
+  {
+    "Date": 2007,
+    "United Kingdom": 3.0336,
+    "England": 3.0405,
+    "Wales": 2.9162,
+    "London Effect": 2.9999
+  },
+  {
+    "Date": 2008,
+    "United Kingdom": 3.0047,
+    "England": 3.0114,
+    "Wales": 2.8729,
+    "London Effect": 2.9565
+  },
+  {
+    "Date": 2009,
+    "United Kingdom": 2.7754,
+    "England": 2.7799,
+    "Wales": 2.691,
+    "London Effect": 2.7233
+  },
+  {
+    "Date": 2010,
+    "United Kingdom": 2.9101,
+    "England": 2.9176,
+    "Wales": 2.7627,
+    "London Effect": 2.8461
+  },
+  {
+    "Date": 2011,
+    "United Kingdom": 2.8888,
+    "England": 2.8972,
+    "Wales": 2.7151,
+    "London Effect": 2.8106
+  },
+  {
+    "Date": 2012,
+    "United Kingdom": 2.9193,
+    "England": 2.9299,
+    "Wales": 2.7033,
+    "London Effect": 2.8258
+  },
+  {
+    "Date": 2013,
+    "United Kingdom": 3.005,
+    "England": 3.0181,
+    "Wales": 2.7344,
+    "London Effect": 2.8914
+  },
+  {
+    "Date": 2014,
+    "United Kingdom": 3.2104,
+    "England": 3.2286,
+    "Wales": 2.8408,
+    "London Effect": 3.069
+  },
+  {
+    "Date": 2015,
+    "United Kingdom": 3.3982,
+    "England": 3.4223,
+    "Wales": 2.9225,
+    "London Effect": 3.2401
+  },
+  {
+    "Date": 2016,
+    "United Kingdom": 3.6086,
+    "England": 3.6387,
+    "Wales": 3.0366,
+    "London Effect": 3.4381
+  },
+  {
+    "Date": 2017,
+    "United Kingdom": 3.7715,
+    "England": 3.8063,
+    "Wales": 3.1442,
+    "London Effect": 3.5995
+  },
+  {
+    "Date": 2018,
+    "United Kingdom": 3.8948,
+    "England": 3.9278,
+    "Wales": 3.2994,
+    "London Effect": 3.7266
+  },
+  {
+    "Date": 2019,
+    "United Kingdom": 3.9564,
+    "England": 3.985,
+    "Wales": 3.4293,
+    "London Effect": 3.7938
+  },
+  {
+    "Date": 2020,
+    "United Kingdom": 4.0056,
+    "England": 4.0317,
+    "Wales": 3.5171,
+    "London Effect": 3.8392
+  }
+]
