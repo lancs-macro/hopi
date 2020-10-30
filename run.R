@@ -47,7 +47,7 @@ annual_nuts3 <- rsindex(td, gclass = "nuts3", freq = "annual") # works
 
 write_data(annual_aggregate, annual_nuts1, annual_nuts2, annual_nuts3, release = "2020-04")
 
-write_docs()
+# write_docs()
 
 # nuts1_weekly <- rsindex(td, freq = "weekly")
 # nuts1_daily <- rsindex(td, freq = "daily")
