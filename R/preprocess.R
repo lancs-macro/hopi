@@ -1,9 +1,16 @@
+# lr_file <- function() {
+#   "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv"
+# }
+
+lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv"
+
+
 # Download and Clean ------------------------------------------------------
 
-#' Downloads the raw lang-registry file from amazon servers
+#' Downloads the raw land-registry file from amazon servers
 #' 
 #' The reason I am not using wget is that it has to be installed externally
-#' `downlad.file` may truncate the downloaded fileif it used for files > 2G.
+#' `downlad.file` may truncate the downloaded file if it used for files > 2G.
 #' Try to use it one per session / or restart the session and use `gc()`.
 #' @importFrom utils download.file
 #' @export
@@ -14,8 +21,7 @@ download_lr_file <- function() {
   if(file_exists("temp/raw.csv")) {
     stop("file already exists")
   }
-  download.file("http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv", 
-                destfile = "temp/raw.csv")
+  download.file(lr_file(), destfile = "temp/raw.csv")
 }
 
 #' Sources the `data-preparation.sh` script, which cleans the raw-file for commas 
@@ -31,8 +37,15 @@ tidy_lr_file <- function() {
   shell("data-preparation.sh")
 }
 
+
 lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv"
 
+
+cleanup <- function() {
+  if(file_exists("temp")) {
+    fs::dir_delete("temp")
+  }
+}
 
 #' Write a csv  
 #' 
