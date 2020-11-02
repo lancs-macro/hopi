@@ -9,24 +9,23 @@ Authors@R:
            comment = c(ORCID = "0000-0002-9769-6395"))
 Description: What the package does (one paragraph).
 License: GPL-3
+Depends:
+    R (>= 3.5) 
 Imports: 
     fs,
     bizdays,
     data.table,
-    dplyr,
-    ggplot2,
     ISOweek,
     jsonlite,
+    Matrix,
+    zoo,
+    dplyr,
+    ggplot2,
     lubridate,
     magrittr,
-    Matrix,
     purrr,
     tibble,
     tidyr,
-    whisker,
-    zoo,
-    digest,
-    yaml,
     readr,
     progress,
     uklr,
@@ -36,4 +35,4 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1

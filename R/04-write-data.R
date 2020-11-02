@@ -1,7 +1,5 @@
 
 
-
-
 dir_create_carefully <- function(dirpath) {
   if(!fs::dir_exists(dirpath)) {
     fs::dir_create(dirpath)
@@ -52,7 +50,7 @@ write_data <- function(..., release) {
   filepath <- paste(basepath, releasepath, freqpath, csvpath, sep="/")
   purrr::map(fs::path_dir(filepath), dir_create_carefully)
   pcsv <- purrr::map2(obj_vec, filepath, csv_write_carefully)
-  write_folder_desc(obj_vec, filepath)
+  # write_folder_desc(obj_vec, filepath)
   write_classification()
 }
 

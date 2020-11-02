@@ -2,14 +2,34 @@
 
 # Preprocess --------------------------------------------------------------
 
-download_lr_file()
-tidy_lr_file()
+# download_lr_file()
+# tidy_lr_file()
 
 # Clean data --------------------------------------------------------------
 
-td <- tidy_data()
+# td <- tidy_data()
 
 # monthly -----------------------------------------------------------------
+
+update_monthly <- function(release_date = NULL) {
+  
+  if(is.null(release_date)) {
+    stop("you have to provide a `release_date`", call. = FALSE)
+  }
+  
+  monthly_uk <- rsindex(td, gclass = "uk", freq = "monthly")
+  monthly_countries <- rsindex(td, gclass = "countries", freq = "monthly")
+  monthly_london <- rsindex(td, gclass = "london_effect", freq = "monthly")
+  
+  monthly_aggregate <- reduce_join(monthly_uk, monthly_countries, monthly_london)
+  monthly_nuts1 <- rsindex(td)
+  monthly_nuts2 <- rsindex(td, gclass = "nuts2") 
+  monthly_nuts3 <- rsindex(td, gclass = "nuts3")
+  
+  write_data(monthly_aggregate, monthly_nuts1, monthly_nuts2, monthly_nuts3, release = release_date)
+  
+}
+
 
 monthly_uk <- rsindex(td, gclass = "uk", freq = "monthly")
 monthly_countries <- rsindex(td, gclass = "countries", freq = "monthly")
@@ -36,6 +56,7 @@ quarterly_nuts3 <- rsindex(td, gclass = "nuts3", freq = "quarterly") # works
 write_data(quarterly_aggregate, quarterly_nuts1, quarterly_nuts2, quarterly_nuts3, release = "2020-04")
 
 # annual ------------------------------------------------------------------
+
 annual_uk <- rsindex(td, gclass = "uk", freq = "annual")
 annual_countries <- rsindex(td, gclass = "countries", freq = "annual")
 annual_london <- rsindex(td, gclass = "london_effect", freq = "annual")
