@@ -26,6 +26,8 @@ download_lr_file <- function() {
 
 #' Sources the `data-preparation.sh` script, which cleans the raw-file for commas 
 #' 
+#' @importFrom fs file_exists
+#' 
 #' @export
 tidy_lr_file <- function() {
   if (!file_exists("temp/raw.csv")) {
@@ -34,17 +36,22 @@ tidy_lr_file <- function() {
   if(file_exists("temp/main.csv")) {
     stop("file already exists")
   }
+  # This doesnot work right now
   shell("data-preparation.sh")
 }
 
 
+#' @importFrom fs file_exists dir_delete
 cleanup <- function() {
   if(file_exists("temp")) {
     fs::dir_delete("temp")
   }
 }
 
-#' Write a csv  
+#' Write the nuts classification into an Rds file
+#' 
+#' @param path the path to write the rds file.
+#'
 #' 
 #' @importFrom fs dir_create dir_exists
 #' @importFrom dplyr mutate select full_join case_when
@@ -52,7 +59,7 @@ cleanup <- function() {
 #' @importFrom magrittr set_names
 #' @importFrom readr read_csv write_csv
 #' @importFrom uklr ons_lookup
-write_nuts <- function() {
+write_nuts <- function(path = "nuts.rds") {
   
   if(!dir_exists("temp")) {
     fs::dir_create("temp")
@@ -134,6 +141,6 @@ write_nuts <- function() {
       uk = "United Kingdom",
       london_effect = ifelse(nuts1 %in% uk_without_london, "London Effect", NA_character_)
     )
-  saveRDS(all_nuts, "inst/all_nuts.rds", compress = "xz")
+  saveRDS(all_nuts, path, compress = "xz")
   # readr::write_csv(all_nuts, "temp/nuts123pc.csv")
 }
