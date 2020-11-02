@@ -31,6 +31,9 @@ tidy_lr_file <- function() {
   shell("data-preparation.sh")
 }
 
+lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv"
+
+
 #' Write a csv  
 #' 
 #' @importFrom fs dir_create dir_exists
