@@ -5,12 +5,11 @@
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
 
-process_data <- function(path = lr_file(), #"temp/main.csv", 
+process_data <- function(path = lr_url, price_low = 10000, price_high = 1500000 ){ #"temp/main.csv", 
                          #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
-                         price_low = 10000, price_high = 1500000) {
   
   # Read Land registry transcation prices
-  main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = T)
+  main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = TRUE)
   # main <- main[, c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16")  := NULL]
   # give names to variables
   setnames(main, c("Price", "Date", "Postcode", "PAON", "SAON", "PPCategory"))

@@ -21,7 +21,7 @@ download_lr_file <- function() {
   if(file_exists("temp/raw.csv")) {
     stop("file already exists")
   }
-  download.file(lr_file(), destfile = "temp/raw.csv")
+  download.file(lr_url, destfile = "temp/raw.csv")
 }
 
 #' Sources the `data-preparation.sh` script, which cleans the raw-file for commas 
@@ -36,9 +36,6 @@ tidy_lr_file <- function() {
   }
   shell("data-preparation.sh")
 }
-
-
-lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv"
 
 
 cleanup <- function() {
