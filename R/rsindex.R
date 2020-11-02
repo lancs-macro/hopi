@@ -4,9 +4,10 @@
 
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
-process_data <- function(path = "temp/main.csv", 
-                      nuts_path = "temp/nuts123pc.csv",
-                      price_low = 10000, price_high = 1500000) {
+
+process_data <- function(path = lr_file(), #"temp/main.csv", 
+                         #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
+                         price_low = 10000, price_high = 1500000) {
   
   # Read Land registry transcation prices
   main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = T)
@@ -15,7 +16,7 @@ process_data <- function(path = "temp/main.csv",
   setnames(main, c("Price", "Date", "Postcode", "PAON", "SAON", "PPCategory"))
   # Read nuts classification together with the corresponding postcodes (created using script regional-classification.R) 
   # nuts <- fread(nuts_path)
-  nuts <- data.table(readRDS(system.file("all_nuts.rds", package = "hopi")))
+  nuts <- data.table(readRDS(system.file("nuts.rds", package = "hopi")))
   # get the dates
   dates <- sort(unique(main[, Date]))
   
@@ -205,7 +206,7 @@ rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk
   out_coredata <- price_level %>% 
     compact() %>% 
     map(coredata) 
-    
+  
   out <- out_coredata %>% 
     pad_uneven_cols() %>% 
     bind_cols() %>% 
