@@ -8,3 +8,5 @@
 ^LICENSE\.md$
 ^data-preparation\.sh$
 ^data$
+^README\.Rmd$
+^\.github$

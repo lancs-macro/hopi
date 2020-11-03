@@ -25,7 +25,7 @@ write_classification <- function() {
   if (file_exists("data/classification.csv")) {
     return(invisible(NULL))
   }
-  outfile <- readRDS(system.file("all_nuts.rds", package = "hopi")) %>%
+  outfile <- readRDS(system.file("nuts.rds", package = "hopi")) %>%
     select(starts_with("nuts"), starts_with("nm")) %>% 
     unique()
   csv_write_carefully(outfile, "data/classification.csv")

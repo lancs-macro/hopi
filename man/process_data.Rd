@@ -4,16 +4,21 @@
 \alias{process_data}
 \title{Download and process data}
 \usage{
-process_data(path = lr_url, price_low = 10000, price_high = 1500000)
+process_data(
+  path = lr_url,
+  end_date = next_release_to(),
+  price_low = 10000,
+  price_high = 1500000
+)
 }
 \arguments{
 \item{path}{the pathfile.}
 
+\item{end_date}{the end date.}
+
 \item{price_low}{the low threshold.}
 
 \item{price_high}{the high threshold.}
-
-\item{end_date}{the end date.}
 }
 \description{
 Download and process data

@@ -15,11 +15,13 @@ lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazo
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
 #' @export
-process_data <- function(path = lr_url, end_date = Sys.Date(), price_low = 10000, price_high = 1500000 ){ #"temp/main.csv", 
+process_data <- function(path = lr_url, end_date = next_release_to(), price_low = 10000, price_high = 1500000 ){ 
+  
+  #"temp/main.csv", 
   #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
   
   if(is.null(end_date)) {
-    stop("plese provide an `end_date`")
+    stop("please provide an `end_date`")
   }
   
   # Read Land registry transcation prices
@@ -42,8 +44,8 @@ process_data <- function(path = lr_url, end_date = Sys.Date(), price_low = 10000
   main <- main[(bizday == T & Price > price_low & Price < price_high & PPCategory == "A" & Postcode != "")]
   
   ## filter by end_date to create full period releases
-  if(end_date != Sys.Date()) {
-    main <- main[Date <= end_date]
+  if(as.Date(end_date) != Sys.Date()) {
+    main <- main[Date <= as.Date(end_date)]
   }
   
   # Merging Land Registry Data with EC main for NUTS
@@ -53,36 +55,7 @@ process_data <- function(path = lr_url, end_date = Sys.Date(), price_low = 10000
 }
 
 
-#'  Get the release dates for the hopi
-#'  
-#' @importFrom lubridate ymd %m-% ceiling_date days year quarter
-#' @importFrom dplyr if_else mutate arrange
-#' @export
-release_dates <- function() {
-  
-  years <- 2020:2023
-  start_months <- c(1,4,7,10)
-  end_months <- c(3,6,9,12)
-  
-  start_ym <- expand.grid(year = years, month = start_months)
-  end_ym <- expand.grid(year = years, month = end_months)
-  
-  start_dates <- ymd(paste(start_ym$year, start_ym$month,"1", sep = "-"))
-  end_dates <- lubridate::ceiling_date(ymd(paste(end_ym$year, end_ym$month, "1", sep = "-")), "month") %m-% days(1)
-  
-  name_release <- paste0(year(start_dates), "-Q",quarter(start_dates))
-  
-  released_dirs <- list.dirs("data/", recursive = FALSE, full.names = FALSE)
-  
-  data.frame(
-    from = start_dates,
-    to = end_dates,
-    name = name_release
-  ) %>% 
-    mutate(released = if_else(name %in% released_dirs, "X", ""))  %>% 
-    arrange(from)
 
-}
 
 
 

@@ -1,39 +1,4 @@
 
-
-# Clean the data ----------------------------------------------------------
-
-#' @importFrom data.table fread := setkey setnames
-#' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
-
-process_data <- function(path = lr_url, price_low = 10000, price_high = 1500000 ){ #"temp/main.csv", 
-                         #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
-  
-  # Read Land registry transcation prices
-  main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = TRUE)
-  # main <- main[, c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16")  := NULL]
-  # give names to variables
-  setnames(main, c("Price", "Date", "Postcode", "PAON", "SAON", "PPCategory"))
-  # Read nuts classification together with the corresponding postcodes (created using script regional-classification.R) 
-  # nuts <- fread(nuts_path)
-  nuts <- data.table(readRDS(system.file("nuts.rds", package = "hopi")))
-  # get the dates
-  dates <- sort(unique(main[, Date]))
-  
-  # loading UK calendar and creating binary bizday  variable --------
-  load_quantlib_calendars("UnitedKingdom", from = dates[1], to = dates[length(dates)])
-  # bizdates <- bizseq(dates[1], dates[length(dates)], "QuantLib/UnitedKingdom")
-  main <- main[, bizday := is.bizday(Date, cal = "QuantLib/UnitedKingdom")]
-  
-  ## applying conditions: business days only, price min 10000, price max 1500000, PPCategory A: Standard Price Paid, Postcode is not empty
-  main <- main[(bizday == T & Price > price_low & Price < price_high & PPCategory == "A" & Postcode != "")]
-  
-  # Merging Land Registry Data with EC main for NUTS
-  out <- merge(main, nuts, by = "Postcode")
-  setkey(out, NULL) ## remove key
-  out
-}
-
-
 # Calculate the repeated-sales index --------------------------------------
 
 # data <- td
@@ -54,6 +19,8 @@ process_data <- function(path = lr_url, price_low = 10000, price_high = 1500000 
 #' @importFrom ISOweek ISOweek2date
 #' @importFrom progress progress_bar
 #' @importFrom data.table data.table .GRP .SD .N key setorder setkeyv .SD shift
+#' 
+#' @export
 rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk", "london_effect"), 
                     freq = c("monthly", "quarterly", "annual", "daily", "weekly"),
                     period_trans = 100, ntras_low = 1, ntrans_high = 8, abs_annual_ret = 0.15) {
@@ -223,6 +190,7 @@ rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk
   )
 }
 
+#' @importFrom purrr map2 map reduce map_dbl
 reduce_join <- function(x, y, z) {
   union_attrs <- purrr::map2(attributes(x), attributes(y), union) %>% 
     purrr::map2(attributes(z), union) %>% 
