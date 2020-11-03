@@ -22,8 +22,8 @@ plot_price_uk <- function(x) {
 #' @importFrom ggplot2 ggplot geom_line facet_wrap theme_bw theme
 plot_price <- function(x) {
   gg <- x %>% 
-    gather(region, value, -index, factor_key = TRUE) %>% 
-    ggplot(aes(index, value)) + 
+    gather(region, value, -Date, factor_key = TRUE) %>% 
+    ggplot(aes(Date, value)) + 
     geom_line() +
     facet_wrap(~region, scales = "free_y") +
     theme_bw() + 

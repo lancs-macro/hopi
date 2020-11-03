@@ -15,11 +15,13 @@ lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazo
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
 #' @export
-process_data <- function(path = lr_url, end_date = Sys.Date(), price_low = 10000, price_high = 1500000 ){ #"temp/main.csv", 
+process_data <- function(path = lr_url, end_date = NULL, price_low = 10000, price_high = 1500000 ){ 
+  
+  #"temp/main.csv", 
   #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
   
   if(is.null(end_date)) {
-    stop("plese provide an `end_date`")
+    stop("please provide an `end_date`")
   }
   
   # Read Land registry transcation prices
@@ -42,8 +44,8 @@ process_data <- function(path = lr_url, end_date = Sys.Date(), price_low = 10000
   main <- main[(bizday == T & Price > price_low & Price < price_high & PPCategory == "A" & Postcode != "")]
   
   ## filter by end_date to create full period releases
-  if(end_date != Sys.Date()) {
-    main <- main[Date <= end_date]
+  if(as.Date(end_date) != Sys.Date()) {
+    main <- main[Date <= as.Date(end_date)]
   }
   
   # Merging Land Registry Data with EC main for NUTS
