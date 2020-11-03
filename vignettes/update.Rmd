@@ -1,0 +1,48 @@
+---
+title: "update"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{update}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+## Update
+
+1. Clone the repo
+
+`git clone https://github.com/lancs-macro/hopi.git`
+
+2. Update 
+
+```{r eval=FALSE}
+devtools::load_all(".")
+
+td <- process_data(end_date = next_release_to())
+update(td, release_name = next_release())
+```
+
+
+
+
+<!--
+# Preprocess --------------------------------------------------------------
+
+# download_lr_file()
+# tidy_lr_file()
+
+# nuts1_weekly <- rsindex(td, freq = "weekly")
+# nuts1_daily <- rsindex(td, freq = "daily")
+
+# cleanup()
+-->
+

@@ -28,83 +28,12 @@ knitr::kable(head(hopi::release_dates(), 6))
 ```
 
 
-# API 
 
-You can also take advantage of the static (read-only) API on github through `githubusercontent`.
+<form method="get" action="./data/2020-Q3/quarerly/nuts1.csv">
+   <button type="submit">Download!</button>
+</form>
 
-## Endpoint 
-
-`endpoint`: https://raw.githubusercontent.com/lancs-macro/hopi/master/data
-
-GET /{release}/{frequency}/{category}/
-
-* `release`: format %YYYY-Q%q (e.g. 2019-Q4).
-* `frequency`: one of "annual", "quarterly" or "monthly" (TBA "weekly", "daily").
-* `category`: one of "nuts1", "nuts2", "nuts3", "aggregate", "all".
-
-GET /classifications.csv
-
-* overview of all the contents
-
-
-## Fetch the data
-
-### R
-
-```{r}
-library(readr)
-
-ukhp_get <- function(release = "2020-Q3", frequency = "monthly", classification = "nuts1") {
-  endpoint <- "https://raw.githubusercontent.com/lancs-macro/hopi/master/data"
-  query <- paste(endpoint, release, frequency, paste0(classification, ".csv"), sep = "/")
-  readr::read_csv(query)
-} 
-ukhp_get()
-```
-
-### Python
-
-```{python eval = FALSE}
-
-from pandas import pd
-
-def ukhp_get(release = "latest", frequency = "monthly", classification = "nuts1"):
-  endpoint = "https://lancs-macro.github.io/uk-house-prices"
-  query_elements = [endpoint, release, frequency, classification + ".json"]
-  query = "/".join(query_elements)
-  print(pd.read_csv(query))
-  
-ukhp_get()
-```
-
-## Update
-
-1. Clone the repo
-
-`git clone https://github.com/lancs-macro/hopi.git`
-
-2. Update 
-
-```{r eval=FALSE}
-devtools::load_all(".")
-
-td <- process_data(end_date = next_release_to())
-update(td, release_name = next_release())
-```
-
-
-
-
-
-<!--
-# Preprocess --------------------------------------------------------------
-
-# download_lr_file()
-# tidy_lr_file()
-
-# nuts1_weekly <- rsindex(td, freq = "weekly")
-# nuts1_daily <- rsindex(td, freq = "daily")
-
-# cleanup()
--->
+<a href="./data/2020-Q3/quarerly/nuts1.csv" download="nuts1.csv">
+    Download quarterly
+</a>
 

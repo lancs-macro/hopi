@@ -1,0 +1,88 @@
+title: hopi
+url: https://lancs-macro.github.io/hopi
+
+template:
+  params:
+    bootswatch: cosmo
+
+authors:
+  Kostas Vasilopoulos:
+    href: https://kvasilopoulos.com/
+
+reference:
+
+  - title: Land Registry File
+    contents:
+      - lr_url
+      - download_lr_file
+
+  - title: Process
+    contents:
+      - 
+
+  - title: Index
+    contents:
+      - summary.radf_obj
+      - diagnostics
+      - datestamp
+
+  - title: Plotting
+    contents:
+      - autoplot.radf_obj
+      - autoplot.radf_distr
+      - autoplot.ds_radf
+
+  - title: Simulation
+    contents:
+      - sim_psy1
+      - sim_psy2
+      - sim_blan
+      - sim_evans
+      - sim_div
+
+  - title: Helpers
+    contents:
+      - psy_minw
+      - index
+      - series_names
+
+  - title: Extra tidying methods
+    contents:
+      - tidy_join
+
+
+navbar:
+  type: default
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    right:
+    - news
+    - github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    intro:
+      text: Intro
+      href: articles/exuber.html
+    articles:
+      text: Vignettes
+      menu:
+      - text: Simulation
+        href: articles/simulation.html
+      - text: Plotting
+        href: articles/plotting.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: News
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/kvasilopoulos/exuber
