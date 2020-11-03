@@ -15,7 +15,7 @@ lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazo
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
 #' @export
-process_data <- function(path = lr_url, end_date = NULL, price_low = 10000, price_high = 1500000 ){ 
+process_data <- function(path = lr_url, end_date = next_release_to(), price_low = 10000, price_high = 1500000 ){ 
   
   #"temp/main.csv", 
   #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
@@ -55,36 +55,7 @@ process_data <- function(path = lr_url, end_date = NULL, price_low = 10000, pric
 }
 
 
-#'  Get the release dates for the hopi
-#'  
-#' @importFrom lubridate ymd %m-% ceiling_date days year quarter
-#' @importFrom dplyr if_else mutate arrange
-#' @export
-release_dates <- function() {
-  
-  years <- 2020:2023
-  start_months <- c(1,4,7,10)
-  end_months <- c(3,6,9,12)
-  
-  start_ym <- expand.grid(year = years, month = start_months)
-  end_ym <- expand.grid(year = years, month = end_months)
-  
-  start_dates <- ymd(paste(start_ym$year, start_ym$month,"1", sep = "-"))
-  end_dates <- lubridate::ceiling_date(ymd(paste(end_ym$year, end_ym$month, "1", sep = "-")), "month") %m-% days(1)
-  
-  name_release <- paste0(year(start_dates), "-Q",quarter(start_dates))
-  
-  released_dirs <- list.dirs("data/", recursive = FALSE, full.names = FALSE)
-  
-  data.frame(
-    from = start_dates,
-    to = end_dates,
-    name = name_release
-  ) %>% 
-    mutate(released = if_else(name %in% released_dirs, "X", ""))  %>% 
-    arrange(from)
 
-}
 
 
 

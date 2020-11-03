@@ -8,7 +8,7 @@ Authors@R:
            email = "k.vasilopoulo@gmail.com",
            comment = c(ORCID = "0000-0002-9769-6395"))
 Description: What the package does (one paragraph).
-License: GPL-3
+License: MIT + file LICENSE
 Depends:
     R (>= 3.5) 
 Imports: 

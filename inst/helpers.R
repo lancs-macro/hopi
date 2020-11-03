@@ -1,12 +1,8 @@
-library(jsonlite)
-library(httr)
+library(readr)
 
-
-ukhp_get <- function(x, frequency = "monthly", release = "latest", classification = "nuts1") {
-  endpoint <- "https://lancs-macro.github.io/uk-house-prices"
+ukhp_get <- function(release = "2020-Q3", frequency = "monthly", classification = "nuts1") {
+  endpoint <- "https://raw.githubusercontent.com/lancs-macro/hopi/master/data"
   query <- paste(endpoint, release, frequency, paste0(classification, ".csv"), sep = "/")
-  request <- GET(query)
-  stop_for_status(request)
-  parse_json(request, simplifyVector = TRUE)
+  read_csv(query)
 } 
-
+ukhp_get()

@@ -1,5 +1,20 @@
+#' Update a version
+#' 
+#' @param td the output of `process_data()`.
+#' @param release_name how to name the release, defaults to `next_release()`.
+#' 
 #' @export
-update_monthly <- function(td, release_name = NULL) {
+update <- function(td, release_name = next_release()) {
+  monthly <- update_monthly(td, release_name = release_name)
+  quarterly <- update_quarterly(td, release_name = release_name)
+  annual <- update_annual(td, release_name = release_name)
+  
+  list(monthly = monthly, quarterly = quarterly, annual = annual)
+}
+
+#' @rdname update
+#' @export
+update_monthly <- function(td, release_name = next_release()) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -20,8 +35,9 @@ update_monthly <- function(td, release_name = NULL) {
   
 }
 
+#' @rdname update
 #' @export
-update_quarterly <- function(td, release_name = NULL) {
+update_quarterly <- function(td, release_name = next_release()) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -41,8 +57,9 @@ update_quarterly <- function(td, release_name = NULL) {
   
 }
 
+#' @rdname update
 #' @export
-update_annual <- function(td, release_name = NULL) {
+update_annual <- function(td, release_name = next_release()) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -63,11 +80,4 @@ update_annual <- function(td, release_name = NULL) {
   
 }
 
-#' @export
-update <- function(td, release_name = NULL) {
-  monthly <- update_monthly(td, release_name = release_name)
-  quarterly <- update_quarterly(td, release_name = release_name)
-  annual <- update_annual(td, release_name = release_name)
-  
-  list(monthly = monthly, quarterly = quarterly, annual = annual)
-}
+
