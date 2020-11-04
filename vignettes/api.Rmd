@@ -37,7 +37,7 @@ GET /classifications.csv
 
 ### R
 
-```{r}
+```{r message=FALSE}
 library(readr)
 
 ukhp_get <- function(release = "2020-Q3", frequency = "monthly", classification = "nuts1") {
@@ -46,13 +46,14 @@ ukhp_get <- function(release = "2020-Q3", frequency = "monthly", classification 
   readr::read_csv(query)
 } 
 ukhp_get()
+ukhp_get(frequency = "quarterly")
 ```
 
 ### Python
 
-```{python eval = FALSE}
+```{python eval=FALSE}
 
-from pandas import pd
+import pandas as pd
 
 def ukhp_get(release = "latest", frequency = "monthly", classification = "nuts1"):
   endpoint = "https://lancs-macro.github.io/uk-house-prices"

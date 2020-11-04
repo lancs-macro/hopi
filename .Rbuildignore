@@ -10,3 +10,4 @@
 ^data$
 ^README\.Rmd$
 ^\.github$
+^doc$
