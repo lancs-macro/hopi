@@ -20,6 +20,19 @@ reference:
     contents:
       - process_data
       - tidy_lr_file
+      - write_nuts
+      
+  - title: Repeated Sales Index
+    contents:
+      - rsindex
+      
+  - title: Release
+    contents:
+      - release_dates
+  
+  - title: Update
+    contents:
+      - update
 
 
 navbar:
@@ -49,4 +62,4 @@ navbar:
       href: news/index.html
     github:
       icon: fa-github fa-lg
-      href: https://github.com/kvasilopoulos/exuber
+      href: https://github.com/lancs-macro/hopi
