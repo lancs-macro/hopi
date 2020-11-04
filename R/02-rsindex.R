@@ -9,6 +9,9 @@
 # ntrans_high = 8
 # abs_annual_ret = 0.15
 
+#' Calculate the repeated-sales index
+#' 
+#' 
 #' @importFrom lubridate year
 #' @importFrom purrr map map2 compact reduce map_lgl map_dbl
 #' @importFrom tibble tibble as_tibble add_column

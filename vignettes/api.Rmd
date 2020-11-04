@@ -51,7 +51,7 @@ ukhp_get(frequency = "quarterly")
 
 ### Python
 
-```{python eval=FALSE}
+```
 
 import pandas as pd
 
