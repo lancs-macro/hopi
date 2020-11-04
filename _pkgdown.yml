@@ -18,37 +18,8 @@ reference:
 
   - title: Process
     contents:
-      - 
-
-  - title: Index
-    contents:
-      - summary.radf_obj
-      - diagnostics
-      - datestamp
-
-  - title: Plotting
-    contents:
-      - autoplot.radf_obj
-      - autoplot.radf_distr
-      - autoplot.ds_radf
-
-  - title: Simulation
-    contents:
-      - sim_psy1
-      - sim_psy2
-      - sim_blan
-      - sim_evans
-      - sim_div
-
-  - title: Helpers
-    contents:
-      - psy_minw
-      - index
-      - series_names
-
-  - title: Extra tidying methods
-    contents:
-      - tidy_join
+      - process_data
+      - tidy_lr_file
 
 
 navbar:
@@ -56,7 +27,7 @@ navbar:
   structure:
     left:
     - home
-    - intro
+    - api
     - reference
     - articles
     - tutorials
@@ -69,14 +40,7 @@ navbar:
       href: index.html
     intro:
       text: Intro
-      href: articles/exuber.html
-    articles:
-      text: Vignettes
-      menu:
-      - text: Simulation
-        href: articles/simulation.html
-      - text: Plotting
-        href: articles/plotting.html
+      href: articles/api.html
     reference:
       text: Reference
       href: reference/index.html
