@@ -1,6 +1,11 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2020-11-03T12:24Z
+articles:
+  api: api.html
+  update: update.html
+last_built: 2020-11-04T11:07Z
+urls:
+  reference: https://lancs-macro.github.io/hopi/reference
+  article: https://lancs-macro.github.io/hopi/articles
 
