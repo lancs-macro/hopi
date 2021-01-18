@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   api: api.html
   update: update.html
-last_built: 2021-01-18T14:08Z
+last_built: 2021-01-18T14:09Z
 urls:
   reference: https://lancs-macro.github.io/hopi/reference
   article: https://lancs-macro.github.io/hopi/articles
