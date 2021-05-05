@@ -181,8 +181,8 @@ rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk
     pad_uneven_cols() %>% 
     bind_cols() %>% 
     add_column(Date = idx_max(price_level)) %>% 
-    select(Date, everything()) %>% 
-    dplyr::rename("England and Wales" = "United Kingdom")
+    select(Date, everything())# %>% 
+    # dplyr::rename("England and Wales" = "United Kingdom")
   
   structure(
     out,
