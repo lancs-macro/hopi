@@ -1,0 +1,89 @@
+---
+title: "Browse"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Browse}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(hopi)
+```
+
+```{r load, include=FALSE}
+library(DT)
+library(glue)
+library(shiny)
+library(shinydashboard)
+
+citation_data <- HTML(glue::glue(
+    "We would appreciate that anyone wishing to use this dataset, modified or 
+otherwise, acknowledge the source of the data publicly available through this website with 
+a citation of the working paper: for example, including a <br> 
+statement such as, 'The authors acknowledge use of the dataset described in Mack and Martínez-García (2011).'"))
+  citation_estimation <- HTML(glue::glue(
+    "We would appreciate that anyone wishing to use this dataset, modified or 
+  otherwise, acknowledge the source of the data publicly available through this website with 
+  a citation of the working paper: for example, including a <br> 
+  statement such as, 'The authors acknowledge use of the dataset described in Pavlidis et al. (2016).'"))
+  
+specify_buttons <- function(filename) {
+  list(
+    list(
+      extend = "collection",
+      buttons =
+        list(
+          list(extend = 'csv',
+               filename = filename
+               , exportOptions  =
+                 list(
+                   modifier = 
+                     list(
+                       page = "all",
+                       search = 'none')
+                 )
+          ),
+          list(extend = 'excel',
+               filename = filename,
+               title = "International Housing Observatory")
+        ),
+      text = "Download"
+    )
+  )
+}
+
+make_DT <- function(x, filename, caption_string = ""){
+  DT::datatable(
+    x,
+    rownames = FALSE,
+    caption = caption_string,
+    extensions = 'Buttons',
+    options = list( 
+      autoWidth = TRUE,
+      paging = TRUE,
+      scrollX = T,
+      columnDefs = list(
+        list(
+          targets = c(0, 14, 18, 21), width = "80px")),
+      buttons = specify_buttons(filename)
+    )
+  ) %>%
+    DT::formatRound(2:NCOL(x), 3) 
+}
+
+```
+
+
+```{r quarterly, message=FALSE ,echo=FALSE}
+
+quarterly <- readr::read_csv(here::here("data", "2020-Q3", "quarterly", "nuts3.csv"))
+make_DT(quarterly, "quarterly.csv")
+```
