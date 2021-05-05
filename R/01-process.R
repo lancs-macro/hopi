@@ -31,7 +31,7 @@ process_data <- function(path = lr_url, end_date = next_release_to(), price_low 
   setnames(main, c("Price", "Date", "Postcode", "PAON", "SAON", "PPCategory"))
   # Read nuts classification together with the corresponding postcodes (created using script regional-classification.R) 
   # nuts <- fread(nuts_path)
-  nuts <- data.table(readRDS(system.file("nuts.rds", package = "hopi")))
+  nuts <- data.table(readRDS(system.file("nuts_ruc.rds", package = "hopi")))
   # get the dates
   dates <- sort(unique(main[, Date]))
   

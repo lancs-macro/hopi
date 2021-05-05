@@ -25,7 +25,7 @@
 #' 
 #' @export
 rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk", "london_effect"), 
-                    freq = c("monthly", "quarterly", "annual", "daily", "weekly"),
+                    freq = c("monthly", "quarterly", "annual", "daily", "weekly"), ruc = FALSE,
                     period_trans = 100, ntras_low = 1, ntrans_high = 8, abs_annual_ret = 0.15) {
   
   gclass <- match.arg(gclass)
@@ -67,6 +67,7 @@ rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk
   price_level <- list()
   suppressWarnings({
     for (kk in 1:length(gareas)) {
+      
       
       pb$tick()
       # Filter for the region with every repetition
