@@ -19,18 +19,28 @@ knitr::opts_chunk$set(
 
 1. Clone the repo
 
-`git clone https://github.com/lancs-macro/hopi.git`
+```{r clone, eval=FALSE}
+library(gert)
+gert::git_clone("https://github.com/lancs-macro/hopi.git")
+```
 
-2. Update 
+2. Load & Update 
 
-```{r eval=FALSE}
+```{r update, eval=FALSE}
 devtools::load_all(".")
 
 td <- process_data(end_date = next_release_to())
 update(td, release_name = next_release())
 ```
 
+3. Git push
 
+```{r push, eval=FALSE}
+
+git_add(".")
+git_commit("Commit msg")
+git_push()
+```
 
 
 <!--
