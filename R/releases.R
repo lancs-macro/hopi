@@ -29,28 +29,35 @@ release_dates <- function() {
   
 }
 
+
+#' @rdname release_dates
+#' @importFrom utils tail head
+#' @export
+avail_releases <- function() {
+  release_dates() %>% 
+    dplyr::filter(released == "X") %>% 
+    dplyr::pull(name)
+}
+
+
 #' @rdname release_dates
 #' @export
 last_release <- function() {
-  release_dates() %>% 
-    dplyr::filter(released == "X") %>% 
-    tail(1) %>% 
-    dplyr::pull(name)
+  avail_releases() %>% 
+    tail(1)
 }
 
 
 #' @rdname release_dates
 #' @export 
 next_release <- function() {
-  release_dates() %>% 
-    dplyr::filter(released != "X") %>% 
-    head(1) %>% 
-    dplyr::pull(name)
+  avail_releases() %>% 
+    head(1)
 }
 
 #' @rdname release_dates
 #' @export
-next_release_to <- function() {
+next_release_to_date <- function() {
   release_dates() %>% 
     dplyr::filter(released != "X") %>% 
     head(1) %>% 

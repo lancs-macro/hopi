@@ -10,7 +10,14 @@ authors:
     href: https://kvasilopoulos.com/
 
 reference:
-
+  - title: Download House Price Data
+    contents:
+      - hopi_get
+  
+ - title: Release
+    contents:
+      - release_dates
+      
   - title: Land Registry File
     contents:
       - lr_url
@@ -25,10 +32,6 @@ reference:
   - title: Repeated Sales Index
     contents:
       - rsindex
-      
-  - title: Release
-    contents:
-      - release_dates
   
   - title: Update
     contents:

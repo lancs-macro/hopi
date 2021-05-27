@@ -10,6 +10,16 @@
 # ntrans_high = 8
 # abs_annual_ret = 0.15
 
+#' Calculate the House Price Index using the Repeated Sales methodology
+#' 
+#' @param data The data to use
+#' @param gclass geographical classification
+#' @param freq frequenct
+#' @param period_trans minimum period of translations
+#' @param ntras_low minimum number of translations
+#' @param ntrans_high maximum number of translations
+#' @param abs_annual_ret should not exceed the absolute annual return 
+#' 
 #' @importFrom lubridate year
 #' @importFrom purrr map map2 compact reduce map_lgl map_dbl
 #' @importFrom tibble tibble as_tibble add_column
