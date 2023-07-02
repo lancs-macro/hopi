@@ -51,8 +51,10 @@ last_release <- function() {
 #' @rdname release_dates
 #' @export 
 next_release <- function() {
-  avail_releases() %>% 
-    head(1)
+  release_dates() %>% 
+    dplyr::filter(released != "X") %>% 
+    head(1) %>% 
+    dplyr::pull(name)
 }
 
 #' @rdname release_dates
