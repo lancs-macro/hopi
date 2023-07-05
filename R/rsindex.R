@@ -154,7 +154,7 @@ rsindex <- function(data, gclass = c("nuts1", "nuts2", "nuts3", "countries", "uk
         beta_error <- solve(crossprod(cbind(1, timediff)), crossprod(cbind(1, timediff), error2)) # coefficients for second regression
         sq_fitted <- sqrt(tcrossprod(cbind(1, timediff), t(beta_error))) # compute square of fitted values for second regression
         dm <- dim(sq_fitted)[1]
-        diagg <- sparseMatrix(i = 1:dm, j = 1:dm, x = 1 / sq_fitted, dims = c(dm, dm))
+        diagg <- sparseMatrix(i = 1:dm, j = 1:dm, x = 1 / sq_fitted@x, dims = c(dm, dm))
         beta_third <- solve(crossprod(mm, diagg %*% mm), crossprod(mm, diagg %*% dd$y)) # solve (X'X)^-1X'y to obtain FINAL coefficient vector
         
         ########### Getting Dates

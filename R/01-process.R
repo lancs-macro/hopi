@@ -15,7 +15,7 @@ lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazo
 #' @importFrom data.table fread := setkey setnames
 #' @importFrom bizdays bizseq load_quantlib_calendars is.bizday bizseq
 #' @export
-process_data <- function(path = lr_url, end_date = next_release_to(), price_low = 10000, price_high = 1500000 ){ 
+process_data <- function(path = lr_url, end_date = next_release_to_date(), price_low = 10000, price_high = 1500000 ){ 
   
   #"temp/main.csv", 
   #nuts_path = "temp/nuts123pc.csv", # try using system.file("nuts.rds", package = "hopir")
@@ -25,7 +25,7 @@ process_data <- function(path = lr_url, end_date = next_release_to(), price_low 
   }
   
   # Read Land registry transcation prices
-  main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = FALSE)
+  main <- fread(path, header = F, drop = c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16"), showProgress = TRUE)
   # main <- main[, c("V1", "V5", "V6", "V7", "V10", "V11", "V12", "V13", "V14", "V16")  := NULL]
   # give names to variables
   setnames(main, c("Price", "Date", "Postcode", "PAON", "SAON", "PPCategory"))

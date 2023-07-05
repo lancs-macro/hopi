@@ -29,9 +29,13 @@ gert::git_clone("https://github.com/lancs-macro/hopi.git")
 
 ```{r update, eval=FALSE}
 devtools::load_all(".")
+options(timeout = 15*60)
 
 td <- process_data(end_date = next_release_to_date())
+gc()
+
 update(td, release_name = next_release())
+
 ```
 
 3. Git push

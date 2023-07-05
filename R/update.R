@@ -4,17 +4,17 @@
 #' @param release_name how to name the release, defaults to `next_release()`.
 #' 
 #' @export
-update <- function(td, release_name = next_release()) {
-  monthly <- update_monthly(td, release_name = release_name)
-  quarterly <- update_quarterly(td, release_name = release_name)
-  annual <- update_annual(td, release_name = release_name)
+update <- function(td, release_name = next_release(), save = TRUE) {
+  monthly <- update_monthly(td, release_name = release_name, save = save)
+  quarterly <- update_quarterly(td, release_name = release_name, save = save)
+  annual <- update_annual(td, release_name = release_name, save = save)
   
   list(monthly = monthly, quarterly = quarterly, annual = annual)
 }
 
 #' @rdname update
 #' @export
-update_monthly <- function(td, release_name = next_release()) {
+update_monthly <- function(td, release_name = next_release(), save = TRUE) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -29,7 +29,9 @@ update_monthly <- function(td, release_name = next_release()) {
   monthly_nuts2 <- rsindex(td, gclass = "nuts2") 
   monthly_nuts3 <- rsindex(td, gclass = "nuts3")
   
-  write_data(monthly_aggregate, monthly_nuts1, monthly_nuts2, monthly_nuts3, release = release_name)
+  if (save) {
+    write_data(monthly_aggregate, monthly_nuts1, monthly_nuts2, monthly_nuts3, release = release_name)
+  }
   
   list(aggregate = monthly_aggregate, nuts1 = monthly_nuts1, nuts2 = monthly_nuts2, nuts3 = monthly_nuts3)
   
@@ -37,7 +39,7 @@ update_monthly <- function(td, release_name = next_release()) {
 
 #' @rdname update
 #' @export
-update_quarterly <- function(td, release_name = next_release()) {
+update_quarterly <- function(td, release_name = next_release(), save = TRUE) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -51,7 +53,10 @@ update_quarterly <- function(td, release_name = next_release()) {
   quarterly_nuts2 <- rsindex(td, gclass = "nuts2", freq = "quarterly") # works
   quarterly_nuts3 <- rsindex(td, gclass = "nuts3", freq = "quarterly") # works
   
-  write_data(quarterly_aggregate, quarterly_nuts1, quarterly_nuts2, quarterly_nuts3, release = release_name)
+  if (save) {
+    write_data(quarterly_aggregate, quarterly_nuts1, quarterly_nuts2, quarterly_nuts3, release = release_name)  
+  }
+  
   
   list(aggregate = quarterly_aggregate, nuts1 = quarterly_nuts1, nuts2 = quarterly_nuts2, nuts3 = quarterly_nuts3)
   
@@ -59,7 +64,7 @@ update_quarterly <- function(td, release_name = next_release()) {
 
 #' @rdname update
 #' @export
-update_annual <- function(td, release_name = next_release()) {
+update_annual <- function(td, release_name = next_release(), save = TRUE) {
   
   if(is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
@@ -74,7 +79,9 @@ update_annual <- function(td, release_name = next_release()) {
   annual_nuts2 <- rsindex(td, gclass = "nuts2", freq = "annual") # works
   annual_nuts3 <- rsindex(td, gclass = "nuts3", freq = "annual") # works
   
-  write_data(annual_aggregate, annual_nuts1, annual_nuts2, annual_nuts3, release = release_name)
+  if (save) {
+    write_data(annual_aggregate, annual_nuts1, annual_nuts2, annual_nuts3, release = release_name)
+  }
   
   list(aggregate = annual_aggregate, nuts1 = annual_nuts1, nuts2 = annual_nuts2, nuts3 = annual_nuts3)
   
