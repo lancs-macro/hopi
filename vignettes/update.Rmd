@@ -34,7 +34,16 @@ options(timeout = 15*60)
 td <- process_data(end_date = next_release_to_date())
 gc()
 
-update(td, release_name = next_release())
+```
+
+```{r update2, eval=FALSE}
+# To update all frequencies
+update(td)
+
+# Or alternatively
+update_monthly(td)
+update_quarterly(td)
+update_annual(td)
 
 ```
 

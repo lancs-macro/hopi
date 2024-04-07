@@ -5,7 +5,7 @@
 #' @export
 release_dates <- function() {
   
-  years <- 2020:2023
+  years <- 2020:2026
   start_months <- c(1,4,7,10)
   end_months <- c(3,6,9,12)
   
