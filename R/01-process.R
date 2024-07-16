@@ -47,7 +47,7 @@ process_data <-
       stop("please provide an `end_date`")
     }
     # loading UK calendar and creating binary bizday  variable --------
-    load_quantlib_calendars("UnitedKingdom", from = dates[1], to = dates[length(dates)])
+    # load_quantlib_calendars("UnitedKingdom", from = dates[1], to = dates[length(dates)])
     
     # Read Land registry transcation prices
     main <-
@@ -68,6 +68,8 @@ process_data <-
     # get the dates
     dates <- sort(unique(main[, Date]))
     
+    # loading UK calendar and creating binary bizday  variable --------
+    load_quantlib_calendars("UnitedKingdom", from = dates[1], to = dates[length(dates)])
     
     # bizdates <- bizseq(dates[1], dates[length(dates)], "QuantLib/UnitedKingdom")
     main <-
