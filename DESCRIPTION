@@ -11,7 +11,7 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Depends:
     R (>= 3.5) 
-Imports: 
+Imports:
     fs,
     bizdays,
     data.table,
@@ -23,6 +23,7 @@ Imports:
     ggplot2,
     lubridate,
     magrittr,
+    parallel,
     purrr,
     tibble,
     tidyr,
