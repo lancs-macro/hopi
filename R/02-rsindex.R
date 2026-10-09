@@ -395,13 +395,13 @@ reduce_join <- function(x, y, z) {
 }
 
 idx_max <- function(x) {
-  col_lengths <- map_dbl(x, length)
+  col_lengths <- lengths(x)
   col_num <- which.max(col_lengths)
   index(x[[col_num]])
 }
 
 pad_uneven_cols <- function(x) {
-  col_lengths <- map_dbl(x, length)
+  col_lengths <- lengths(x)
   nmax <- max(col_lengths)
   npads <- nmax - col_lengths
   map2(x, npads, ~ c(.x, rep(NA, .y)))

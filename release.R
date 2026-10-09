@@ -151,7 +151,7 @@ write_release_report <- function(release, run_start, run_end, td, log_file) {
       storage.mode(new_m) <- "double"
       diffs <- abs(old_m - new_m)
       n_revised <- sum(diffs > 1e-6, na.rm = TRUE)
-      if (any(!is.na(diffs))) max_diff <- max(diffs, na.rm = TRUE)
+      if (!all(is.na(diffs))) max_diff <- max(diffs, na.rm = TRUE)
     }
 
     line1 <- sprintf(
