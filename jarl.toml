@@ -1,0 +1,3 @@
+# line-length is not a jarl rule (lintr's line_length_linter(120) has no
+# equivalent here); mitigated via air.toml's `line-width = 120` instead.
+[lint]
