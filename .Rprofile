@@ -1,2 +1,2 @@
-Sys.setenv(RENV_CONFIG_PAK_ENABLED = "TRUE")
-source("renv/activate.R")
+source("rv/scripts/rvr.R")
+source("rv/scripts/activate.R")
