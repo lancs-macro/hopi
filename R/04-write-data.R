@@ -1,20 +1,18 @@
-
-
 dir_create_carefully <- function(dirpath) {
-  if(!fs::dir_exists(dirpath)) {
+  if (!fs::dir_exists(dirpath)) {
     fs::dir_create(dirpath)
     cat("Creating:", dirpath, "\n")
   }
 }
 csv_write_carefully <- function(x, csvpath) {
-  if(!fs::file_exists(csvpath)) {
+  if (!fs::file_exists(csvpath)) {
     readr::write_csv(x, csvpath)
     cat("Writing: ", csvpath, "\n")
   }
 }
 
 file_copy_carefully <- function(old, new) {
-  if(!file.exists(new)) {
+  if (!file.exists(new)) {
     fs::file_copy(old, new)
     cat("Writing: ", new, "\n")
   }
@@ -26,7 +24,7 @@ write_classification <- function() {
     return(invisible(NULL))
   }
   outfile <- readRDS(system.file("nuts.rds", package = "hopi")) %>%
-    select(starts_with("nuts"), starts_with("nm")) %>% 
+    select(starts_with("nuts"), starts_with("nm")) %>%
     unique()
   csv_write_carefully(outfile, "data/classification.csv")
 }
@@ -40,14 +38,14 @@ write_data <- function(..., release) {
   chr_dots <- sapply(substitute(...()), deparse)
   chr_vec <- gsub("_", "/", chr_dots)
   freqpath <- fs::path_dir(chr_vec)
-  if(!all(freqpath %in% c("monthly", "quarterly", "annual"))) {
+  if (!all(freqpath %in% c("monthly", "quarterly", "annual"))) {
     stop("non-standard path names")
   }
   csvpath <- paste0(fs::path_file(chr_vec), ".csv")
-  if(!all(csvpath %in% c("aggregate.csv", "nuts1.csv", "nuts2.csv", "nuts3.csv"))) {
+  if (!all(csvpath %in% c("aggregate.csv", "nuts1.csv", "nuts2.csv", "nuts3.csv"))) {
     stop("non-standard path names")
   }
-  filepath <- paste(basepath, releasepath, freqpath, csvpath, sep="/")
+  filepath <- paste(basepath, releasepath, freqpath, csvpath, sep = "/")
   purrr::map(fs::path_dir(filepath), dir_create_carefully)
   pcsv <- purrr::map2(obj_vec, filepath, csv_write_carefully)
   # write_folder_desc(obj_vec, filepath)
@@ -95,14 +93,12 @@ write_data <- function(..., release) {
 #   json_write_carefully(latest, "docs/latest.json")
 # }
 
-
-
 # copy_desc <- function() {
 #   descfiles <- list.files("data", pattern = "json", recursive = TRUE,)
 #   desc_data_fullpath <- paste("data", descfiles, sep = "/")
 #   desc_docs_fullpath <- paste("docs", descfiles, sep = "/")
 #   pjson <- purrr::map2(desc_data_fullpath, desc_docs_fullpath, file_copy_carefully)
-#   
+#
 # }
 
 # write_docs <- function() {
@@ -124,11 +120,11 @@ write_data <- function(..., release) {
 #   if(file_exists(destfile)) {
 #     return(invisible(NULL))
 #   }
-#   discard_idx <- map(x, attributes) %>% 
+#   discard_idx <- map(x, attributes) %>%
 #     map(~ !names(.x) %in% c("row.names", "class"))
 #   nms <- gsub(".csv", "", fs::path_file(filepath))
-#   desc <- map(x, attributes) %>% 
-#     map2(discard_idx, ~ .x[.y]) %>% 
+#   desc <- map(x, attributes) %>%
+#     map2(discard_idx, ~ .x[.y]) %>%
 #     set_names(nms)
 #   json_write_carefully(desc, destfile)
 # }

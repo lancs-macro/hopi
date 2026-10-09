@@ -49,8 +49,10 @@ end_date <- next_release_to_date()
 td_cache <- "temp/td_cache.rds"
 
 td <- NULL
-if (fs::file_exists(td_cache) &&
-    fs::file_info(td_cache)$modification_time > fs::file_info(csv_path)$modification_time) {
+if (
+  fs::file_exists(td_cache) &&
+    fs::file_info(td_cache)$modification_time > fs::file_info(csv_path)$modification_time
+) {
   log_line("Loading cached td from ", td_cache)
   td <- tryCatch(readRDS(td_cache), error = function(e) NULL)
 }
@@ -84,7 +86,9 @@ run_stage <- function(name, fn) {
       cat(m$message, file = log_file, append = TRUE)
     }
   )
-  if (!is.null(result)) log_line("Finished: ", name)
+  if (!is.null(result)) {
+    log_line("Finished: ", name)
+  }
   result
 }
 
@@ -119,7 +123,13 @@ write_release_report <- function(release, run_start, run_end, td, log_file) {
     old_path <- file.path(prev_dir, freq, paste0(type, ".csv"))
     new_path <- file.path(release_dir, freq, paste0(type, ".csv"))
     if (!fs::file_exists(old_path) || !fs::file_exists(new_path)) {
-      return(sprintf("  %s/%s.csv: missing (old=%s, new=%s)", freq, type, fs::file_exists(old_path), fs::file_exists(new_path)))
+      return(sprintf(
+        "  %s/%s.csv: missing (old=%s, new=%s)",
+        freq,
+        type,
+        fs::file_exists(old_path),
+        fs::file_exists(new_path)
+      ))
     }
 
     old <- data.table::fread(old_path, colClasses = "character")
@@ -146,15 +156,21 @@ write_release_report <- function(release, run_start, run_end, td, log_file) {
 
     line1 <- sprintf(
       "  %s/%s.csv: %d new row(s)%s, %d revised value(s) among %d shared dates%s",
-      freq, type,
+      freq,
+      type,
       length(new_rows),
       if (length(new_rows) > 0) paste0(" (", paste(new_rows, collapse = ", "), ")") else "",
-      n_revised, length(common_dates),
+      n_revised,
+      length(common_dates),
       if (n_revised > 0) sprintf(" (max abs revision: %.4f)", max_diff) else ""
     )
     extra <- character(0)
-    if (length(added_cols) > 0) extra <- c(extra, sprintf("    + columns added: %s", paste(added_cols, collapse = ", ")))
-    if (length(removed_cols) > 0) extra <- c(extra, sprintf("    - columns removed: %s", paste(removed_cols, collapse = ", ")))
+    if (length(added_cols) > 0) {
+      extra <- c(extra, sprintf("    + columns added: %s", paste(added_cols, collapse = ", ")))
+    }
+    if (length(removed_cols) > 0) {
+      extra <- c(extra, sprintf("    - columns removed: %s", paste(removed_cols, collapse = ", ")))
+    }
     c(line1, extra)
   }
 

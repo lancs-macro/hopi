@@ -141,7 +141,9 @@ make_region_processor <- function(
     Ntime <- max(dd$time2id) # number of explanatory variables = number of days minus one
     N <- nrow(dd)
 
-    if (verbose) message(sprintf("[%s] N=%s Ntime=%s prep: %.2fs", region_name, N, Ntime, (proc.time() - t_region)[["elapsed"]]))
+    if (verbose) {
+      message(sprintf("[%s] N=%s Ntime=%s prep: %.2fs", region_name, N, Ntime, (proc.time() - t_region)[["elapsed"]]))
+    }
 
     # No repeat-sales pairs survived filtering (e.g. small region + strict thresholds) -
     # nothing to regress. Must return an actual NULL, not a caught condition object: the
@@ -161,11 +163,15 @@ make_region_processor <- function(
         t_stage <- proc.time()
         # Sparse X matrix creation and 3 stage least squares regression
         mm <- sparseMatrix(i = i, j = j, x = x, dims = c(N, Ntime))[, -1] # create sparse matrix
-        if (verbose) message(sprintf("[%s] sparseMatrix build: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        if (verbose) {
+          message(sprintf("[%s] sparseMatrix build: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        }
 
         t_stage <- proc.time()
         sparse.sol <- solve(crossprod(mm), crossprod(mm, dd$y)) # solve (X'X)^-1X'y to obtain coefficient vector
-        if (verbose) message(sprintf("[%s] stage1 solve: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        if (verbose) {
+          message(sprintf("[%s] stage1 solve: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        }
 
         error <- dd$y - tcrossprod(mm, t(sparse.sol)) # compute error=y-X'b
         error2 <- error * error # squared residuals from first stage regression
@@ -181,14 +187,18 @@ make_region_processor <- function(
           crossprod(mm, mm * w),
           crossprod(mm, w * dd$y)
         ) # weighted (X'WX)^-1X'Wy, avoids building an NxN diagonal matrix
-        if (verbose) message(sprintf("[%s] stage3 solve: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        if (verbose) {
+          message(sprintf("[%s] stage3 solve: %.2fs", region_name, (proc.time() - t_stage)[["elapsed"]]))
+        }
 
         ########### Getting Dates
         un_dates <- sort(unique(c(dd$Lag_Period, dd$Period)))
 
         ###### Saving Prices
         log_prices <- zoo(as.vector(beta_third), un_dates[-1])
-        if (verbose) message(sprintf("[%s] total: %.2fs", region_name, (proc.time() - t_region)[["elapsed"]]))
+        if (verbose) {
+          message(sprintf("[%s] total: %.2fs", region_name, (proc.time() - t_region)[["elapsed"]]))
+        }
         exp(log_prices)
       },
       error = function(e) {

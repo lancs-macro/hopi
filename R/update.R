@@ -29,8 +29,7 @@ update <- function(td, release_name = next_release(), save = TRUE, verbose = FAL
 #' @rdname update
 #' @export
 update_monthly <- function(td, release_name = next_release(), save = TRUE, verbose = FALSE, workers = 1) {
-
-  if(is.null(release_name)) {
+  if (is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
   }
   if (save && release_files_exist(release_name, "monthly")) {
@@ -64,8 +63,7 @@ update_monthly <- function(td, release_name = next_release(), save = TRUE, verbo
 #' @rdname update
 #' @export
 update_quarterly <- function(td, release_name = next_release(), save = TRUE, verbose = FALSE, workers = 1) {
-
-  if(is.null(release_name)) {
+  if (is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
   }
   if (save && release_files_exist(release_name, "quarterly")) {
@@ -99,8 +97,7 @@ update_quarterly <- function(td, release_name = next_release(), save = TRUE, ver
 #' @rdname update
 #' @export
 update_annual <- function(td, release_name = next_release(), save = TRUE, verbose = FALSE, workers = 1) {
-
-  if(is.null(release_name)) {
+  if (is.null(release_name)) {
     stop("you have to provide a `release_date`", call. = FALSE)
   }
   if (save && release_files_exist(release_name, "annual")) {

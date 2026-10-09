@@ -8,32 +8,32 @@ lr_url <- "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazo
 # Download and Clean ------------------------------------------------------
 
 #' Downloads the raw land-registry file from amazon servers
-#' 
+#'
 #' The reason I am not using wget is that it has to be installed externally
 #' `downlad.file` may truncate the downloaded file if it used for files > 2G.
 #' Try to use it one per session / or restart the session and use `gc()`.
 #' @importFrom utils download.file
 #' @export
 download_lr_file <- function() {
-  if(!dir_exists("temp")) {
+  if (!dir_exists("temp")) {
     fs::dir_create("temp")
   }
-  if(file_exists("temp/raw.csv")) {
+  if (file_exists("temp/raw.csv")) {
     stop("file already exists")
   }
   download.file(lr_url, destfile = "temp/raw.csv")
 }
 
-#' Sources the `data-preparation.sh` script, which cleans the raw-file for commas 
-#' 
+#' Sources the `data-preparation.sh` script, which cleans the raw-file for commas
+#'
 #' @importFrom fs file_exists
-#' 
+#'
 #' @export
 tidy_lr_file <- function() {
   if (!file_exists("temp/raw.csv")) {
     stop("There is no 'temp/raw.csv' file.")
   }
-  if(file_exists("temp/main.csv")) {
+  if (file_exists("temp/main.csv")) {
     stop("file already exists")
   }
   # This doesnot work right now
@@ -43,16 +43,16 @@ tidy_lr_file <- function() {
 
 #' @importFrom fs file_exists dir_delete
 cleanup <- function() {
-  if(file_exists("temp")) {
+  if (file_exists("temp")) {
     fs::dir_delete("temp")
   }
 }
 
 #' Write the nuts classification into an Rds file
-#' 
+#'
 #' @param path the path to write the rds file.
 #'
-#' 
+#'
 #' @importFrom fs dir_create dir_exists
 #' @importFrom dplyr mutate select full_join case_when
 #' @importFrom tidyr drop_na
@@ -60,8 +60,7 @@ cleanup <- function() {
 #' @importFrom readr read_csv write_csv
 #' @importFrom uklr ons_lookup
 write_nuts <- function(path = "nuts.rds") {
-  
-  if(!dir_exists("temp")) {
+  if (!dir_exists("temp")) {
     fs::dir_create("temp")
   }
   # Download ----------------------------------------------------------------
@@ -72,72 +71,72 @@ write_nuts <- function(path = "nuts.rds") {
   # download.file("http://ec.europa.eu/eurostat/tercet/download.do?file=pc2018_uk_NUTS-2016_v2.0.zip",
   #               destfile = "temp/zip_pc.zip")
   # unzip("temp/zip_pc.zip")
-  
+
   # Read --------------------------------------------------------------------
-  
-  
-  nuts123 <- ons_lookup() %>% 
-    select(starts_with("NUTS")) %>% 
-    set_names(c("cd3", "nm3", "cd2", "nm2", "cd", "nm")) %>% 
+
+  nuts123 <- ons_lookup() %>%
+    select(starts_with("NUTS")) %>%
+    set_names(c("cd3", "nm3", "cd2", "nm2", "cd", "nm")) %>%
     unique()
-  
-  pc_nuts3 <- uklr::pc %>% 
-    set_names(c("cd3", "pc")) %>% 
-    mutate(pc_trim =  gsub("[0-9].*","", pc)) 
-  
-  all_nuts_reduced <- full_join(nuts123, pc_nuts3, by = "cd3") %>% 
-    select(Postcode = pc, pc_trim, nuts1 = cd,  nuts2 = cd2, nuts3 = cd3, nm, nm2, nm3) 
-    
-  # nuts1 <- read_csv(URL_nuts1) %>% 
+
+  pc_nuts3 <- uklr::pc %>%
+    set_names(c("cd3", "pc")) %>%
+    mutate(pc_trim = gsub("[0-9].*", "", pc))
+
+  all_nuts_reduced <- full_join(nuts123, pc_nuts3, by = "cd3") %>%
+    select(Postcode = pc, pc_trim, nuts1 = cd, nuts2 = cd2, nuts3 = cd3, nm, nm2, nm3)
+
+  # nuts1 <- read_csv(URL_nuts1) %>%
   #   mutate(cd = nuts118cd,
-  #          nm = nuts118nm) %>% 
+  #          nm = nuts118nm) %>%
   #   select(cd, nm)
-  # 
-  # nuts2 <- read_csv(URL_nuts2) %>% 
+  #
+  # nuts2 <- read_csv(URL_nuts2) %>%
   #   mutate(cd2 = NUTS215CD,
-  #          nm2 = NUTS215NM) %>% 
-  #   select(cd2, nm2) %>% 
-  #   mutate(cd = str_sub(cd2, 1, -2)) %>% 
+  #          nm2 = NUTS215NM) %>%
+  #   select(cd2, nm2) %>%
+  #   mutate(cd = str_sub(cd2, 1, -2)) %>%
   #   select(cd, cd2, nm2)
-  # 
-  # nuts3 <- read_csv(URL_nuts3) %>% 
+  #
+  # nuts3 <- read_csv(URL_nuts3) %>%
   #   mutate(cd3 = NUTS315CD,
-  #          nm3 = NUTS315NM) %>% 
-  #   select(cd3, nm3) %>% 
+  #          nm3 = NUTS315NM) %>%
+  #   select(cd3, nm3) %>%
   #   mutate(cd = str_sub(cd3, 1, -3),
-  #          cd2 = str_sub(cd3, 1, -2)) %>% 
+  #          cd2 = str_sub(cd3, 1, -2)) %>%
   #   select(cd, cd2, cd3, nm3)
-  # 
-  # # LENGTH 1,759,911 .. exlcuding NORTHERN IRELAND 
-  # pc1_nuts3 <- read_delim("temp/pc2018_uk_NUTS-2016_v2.0.csv", 
-  #                         ";", quote = "'", escape_double = FALSE, 
-  #                         trim_ws = TRUE) %>% 
-  #   set_names("cd3", "pc") %>% 
+  #
+  # # LENGTH 1,759,911 .. exlcuding NORTHERN IRELAND
+  # pc1_nuts3 <- read_delim("temp/pc2018_uk_NUTS-2016_v2.0.csv",
+  #                         ";", quote = "'", escape_double = FALSE,
+  #                         trim_ws = TRUE) %>%
+  #   set_names("cd3", "pc") %>%
   #   mutate(pc_trim =  gsub("[0-9].*","", pc))
-  # 
-  # all_nuts <- full_join(nuts1, nuts2, by = "cd") %>% 
-  #   full_join(nuts3, by = c("cd", "cd2")) %>% 
-  #   full_join(pc1_nuts3, by = "cd3") %>% 
-  #   select(cd, cd2, cd3, pc, pc_trim, nm, nm2, nm3) %>% 
+  #
+  # all_nuts <- full_join(nuts1, nuts2, by = "cd") %>%
+  #   full_join(nuts3, by = c("cd", "cd2")) %>%
+  #   full_join(pc1_nuts3, by = "cd3") %>%
+  #   select(cd, cd2, cd3, pc, pc_trim, nm, nm2, nm3) %>%
   #   drop_na() %>% # HAD TO DROP NA TO SEE IF THIS IS CORRECT
-  #   select(Postcode = pc, pc_trim, nuts1 = cd,  nuts2 = cd2, nuts3 = cd3, nm, nm2, nm3) 
-  # 
+  #   select(Postcode = pc, pc_trim, nuts1 = cd,  nuts2 = cd2, nuts3 = cd3, nm, nm2, nm3)
+  #
   # uk <- c("UKI","UKJ","UKF","UKG","UKH","UKC","UKK", "UKD", "UKM", "UKN", "UKL", "UKE")
-  england <- c("UKI","UKJ","UKF","UKG","UKH","UKC","UKK", "UKD", "UKE")
+  england <- c("UKI", "UKJ", "UKF", "UKG", "UKH", "UKC", "UKK", "UKD", "UKE")
   london <- "UKI"
   northern_ireland <- "UKN"
   scotland <- "UKM"
   wales <- "UKL"
   uk <- c(england, scotland, northern_ireland, wales)
   uk_without_london <- uk[!uk == london]
-  
-  all_nuts <- all_nuts_reduced %>% 
+
+  all_nuts <- all_nuts_reduced %>%
     mutate(
       countries = case_when(
         nuts1 %in% england ~ "England",
         nuts1 %in% northern_ireland ~ "Northern Ireland",
         nuts1 %in% scotland ~ "Scotland",
-        nuts1 %in% wales ~ "Wales"),
+        nuts1 %in% wales ~ "Wales"
+      ),
       uk = "United Kingdom",
       london_effect = ifelse(nuts1 %in% uk_without_london, "London Effect", NA_character_)
     )
