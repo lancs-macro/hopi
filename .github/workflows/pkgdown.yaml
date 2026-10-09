@@ -41,6 +41,20 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
+      - uses: posit-dev/setup-air@v1
+        with:
+          version: 0.12.0
+
+      - name: Check formatting (air)
+        run: air format --check .
+
+      - uses: etiennebacher/setup-jarl@v0.1.1
+        with:
+          version: 0.6.0
+
+      - name: Lint (jarl)
+        run: jarl check .
+
       - name: Deploy package
         run: |
           git config --local user.email "actions@github.com"
