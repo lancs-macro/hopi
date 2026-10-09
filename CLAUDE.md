@@ -5,11 +5,17 @@ Numbered scripts in `R/` (`00-preprocess.R` … `06-download.R`) run in order; `
 
 ## Environment
 
-Dependencies are pinned with `renv` (installer backend: `pak`, enabled via `.Rprofile`).
+- R version: managed with `rig` (currently 4.6.1 - `rig default 4.6.1`)
+- Dependencies: `DESCRIPTION` Imports/Suggests is the source of truth; `rv` (`rproject.toml` + lockfile) manages the reproducible dev library on top of it, not renv
+  - Setup: `rv sync`
+  - Add a dependency: add it to `DESCRIPTION` Imports, then `rv add <pkg>` (or `rv sync` if already added to rproject.toml)
+- Format: `air format .` (check only: `air format --check .`)
+- Lint: `jarl check .` (autofix: `jarl check . --fix`)
 
-- Restore: `Rscript -e 'renv::restore()'`
-- Add a dependency: add it to `DESCRIPTION` Imports, then `Rscript -e 'renv::install("pkg"); renv::snapshot()'`
-- After changing dependencies: `Rscript -e 'renv::snapshot()'`
+### Rules
+- Never use `install.packages()` or `renv::*` - all dependency changes go through DESCRIPTION + `rv add`/`rv remove`.
+- Run `air format .` then `jarl check .` before committing.
+- No `# nolint` comments - jarl uses `# jarl-ignore <rule>: <reason>` on the line before the flagged code instead.
 
 ## Commands
 
